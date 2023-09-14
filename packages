@@ -1,5 +1,6 @@
 autojump
 curl
+fzf
 git
 meld
 minicom

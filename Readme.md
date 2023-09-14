@@ -13,3 +13,13 @@ This setting will restore the device state (of WiFi, Bluetooth or 3/4/5G radio d
 ```
 RESTORE_DEVICE_STATE_ON_STARTUP=1
 ```
+
+## Yocto site configuration
+This configuration can be included in Yocto and will be enabled only on your PC. The file is `$HOME/.yocto/site.conf`
+```
+DL_DIR = "<download-directory>"
+SSTATE_DIR = "<sstate-directory>"
+IMAGE_FSTYPES_append = " tar.gz"
+BB_NUMBER_THREADS ?= "${@int(oe.utils.cpu_count()/4)}"
+PARALLEL_MAKE ?= "-j ${@int(oe.utils.cpu_count()/4)}"
+```

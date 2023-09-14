@@ -23,3 +23,6 @@ IMAGE_FSTYPES_append = " tar.gz"
 BB_NUMBER_THREADS ?= "${@int(oe.utils.cpu_count()/4)}"
 PARALLEL_MAKE ?= "-j ${@int(oe.utils.cpu_count()/4)}"
 ```
+
+## Hide files in nautilus
+To hide files or folder in nautilus, without prepending a dot to the file name, you can create a file named `.hidden` in the folder and add the the files/folders to hide (one file/folder per line).

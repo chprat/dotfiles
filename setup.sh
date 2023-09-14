@@ -27,7 +27,7 @@ if [ ! -f "$HOME/.local/bin/delta" ]; then
 fi
 
 # create backup and link dotfiles
-for file in minirc.dfl userhome-hidden; do
+for file in minirc.dfl userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then
         target_file="hidden"
     else

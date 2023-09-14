@@ -5,6 +5,7 @@ ENV TZ=Europe/Berlin
 # install required tools
 RUN apt-get update && apt-get install --no-install-recommends -y \
     locales \
+    shellcheck \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

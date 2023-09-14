@@ -3,6 +3,9 @@
 dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
+# install packages
+xargs sudo apt install < "$code_path/packages"
+
 # add user to dialout
 if ! groups | grep -q dialout; then
     sudo usermod -aG dialout "$USERNAME"

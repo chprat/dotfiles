@@ -16,6 +16,8 @@ fi
 # create ~/.local/bin
 [ ! -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
 
+# create ~/.vim/plugged
+[ ! -d "$HOME/.vim/plugged" ] && mkdir -p "$HOME/.vim/plugged"
 
 # install delta
 if [ ! -f "$HOME/.local/bin/delta" ]; then

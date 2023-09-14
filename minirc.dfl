@@ -1,0 +1,6 @@
+pu port             /dev/ttyUSB0
+pu rtscts           No
+pu logfname
+pu logconn          No
+pu logxfer          No
+pu baudrate         115200

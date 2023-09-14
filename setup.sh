@@ -19,6 +19,12 @@ fi
 # create ~/.vim/plugged
 [ ! -d "$HOME/.vim/plugged" ] && mkdir -p "$HOME/.vim/plugged"
 
+# copy ~/.gitconfig.user
+if [ ! -f "$HOME/.gitconfig.user" ]; then
+    cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"
+    echo "Please update the $HOME/.gitconfig.user configuration!"
+fi
+
 # install delta
 if [ ! -f "$HOME/.local/bin/delta" ]; then
     curl -LOJR "https://github.com/dandavison/delta/releases/download/$delta_release/delta-$delta_release-x86_64-unknown-linux-musl.tar.gz"

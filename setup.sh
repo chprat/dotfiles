@@ -26,6 +26,12 @@ if ! grep -q "source $code_path/bashrc" "$HOME/.bashrc"; then
     echo "source $code_path/bashrc" >> "$HOME/.bashrc"
 fi
 
+# uncomment some lines in ~/.bashrc
+sed -i "/bin\/lesspipe/s/^#//" .bashrc
+sed -i "/grep/s/#//" .bashrc
+sed -i "/#alias l/s/^#//" .bashrc
+sed -i "/alias ll/s/^alias ll.*$/alias ll='ls -alFh'/" .bashrc
+
 # copy ~/.gitconfig.user
 if [ ! -f "$HOME/.gitconfig.user" ]; then
     cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"

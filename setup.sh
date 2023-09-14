@@ -15,8 +15,12 @@ fi
 [ ! -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
 
 # create backup and link dotfiles
-for file in minirc.dfl; do
-    target_file="$file"
+for file in minirc.dfl userhome-hidden; do
+    if [ "$file" = "userhome-hidden" ]; then
+        target_file="hidden"
+    else
+        target_file="$file"
+    fi
     if [ ! -L "$HOME/.$target_file" ]; then
         mkdir -p "$code_path/backup"
         mv "$HOME/.$target_file" "$code_path/backup/$target_file"

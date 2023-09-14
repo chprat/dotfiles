@@ -19,6 +19,13 @@ fi
 # create ~/.vim/plugged
 [ ! -d "$HOME/.vim/plugged" ] && mkdir -p "$HOME/.vim/plugged"
 
+# add source command to ~/.bashrc
+if ! grep -q "source $code_path/bashrc" "$HOME/.bashrc"; then
+    mkdir -p "$code_path/backup"
+    cp "$HOME/.bashrc" "$code_path/backup/bashrc"
+    echo "source $code_path/bashrc" >> "$HOME/.bashrc"
+fi
+
 # copy ~/.gitconfig.user
 if [ ! -f "$HOME/.gitconfig.user" ]; then
     cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"

@@ -3,4 +3,5 @@ git
 meld
 minicom
 nautilus-hide
+tmux
 vim

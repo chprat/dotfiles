@@ -38,3 +38,5 @@
     initializenew = true
 [push]
     recurseSubmodules = check
+[include]
+    path = ~/.gitconfig.user

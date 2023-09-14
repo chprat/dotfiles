@@ -26,3 +26,13 @@ PARALLEL_MAKE ?= "-j ${@int(oe.utils.cpu_count()/4)}"
 
 ## Hide files in nautilus
 To hide files or folder in nautilus, without prepending a dot to the file name, you can create a file named `.hidden` in the folder and add the the files/folders to hide (one file/folder per line).
+
+## LabGrid .bashrc aliases
+These commands will simplify the usage of LabGrid in multiple locations with different LabGrid servers. They go in your `$HOME.bashrc` and are untested.
+```
+alias lgcomp='. <path-to-labgrid>/labgrid/contrib/completion/labgrid-client.bash && complete -F _labgrid_client lgc'
+alias lgc='labgrid-client'
+alias lgs='. <path-to-labgrid>/labgrid-venv/bin/activate'
+function lghome () { export LG_CROSSBAR="ws://<srv1>:20408/ws" && export LG_PLACE=<place> && export LG_ENV=<environment>.yaml && lgs && lgcomp ; }
+function lgoffice () { export LG_CROSSBAR="ws://<srv2>:20408/ws" && export LG_PLACE=<place> && export LG_ENV=<environment>.yaml && lgs && lgcomp ; }
+```

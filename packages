@@ -3,6 +3,7 @@ curl
 fzf
 git
 make
+mc
 meld
 minicom
 nautilus-hide

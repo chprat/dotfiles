@@ -1,0 +1,40 @@
+[color]
+    ui = auto
+[alias]
+    graph = log --graph --decorate --oneline --all
+    ddiff = difftool --dir-diff --tool=meld
+[credential]
+    helper = store
+[core]
+    editor = vim
+    pager = delta
+[cola]
+    spellcheck = false
+[gc]
+    autoDetach = false
+[init]
+    defaultBranch = main
+[safe]
+    directory = *
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    light = true
+    side-by-side = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[commit]
+    gpgSign = false
+[pull]
+    rebase = false
+[gui]
+    pruneduringfetch = true
+[smartgit "submodule"]
+    fetchalways = false
+    update = true
+    initializenew = true
+[push]
+    recurseSubmodules = check

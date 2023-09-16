@@ -6,7 +6,7 @@ code_path=$(realpath "$dir_name")
 delta_release="0.16.5"
 
 # install packages
-xargs sudo apt install < "$code_path/packages"
+xargs sudo apt install -y < "$code_path/packages"
 
 # add user to dialout
 if ! groups | grep -q dialout; then

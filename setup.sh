@@ -49,6 +49,8 @@ fi
 for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then
         target_file=".hidden"
+    elif [ "$file" = "minirc.dfl" ]; then
+        target_file="minirc.dfl"
     else
         target_file=".$file"
     fi

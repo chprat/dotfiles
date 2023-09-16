@@ -48,13 +48,13 @@ fi
 # create backup and link dotfiles
 for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then
-        target_file="hidden"
+        target_file=".hidden"
     else
-        target_file="$file"
+        target_file=".$file"
     fi
-    if [ ! -L "$HOME/.$target_file" ]; then
+    if [ ! -L "$HOME/$target_file" ]; then
         mkdir -p "$code_path/backup"
-        mv "$HOME/.$target_file" "$code_path/backup/$file"
+        mv "$HOME/$target_file" "$code_path/backup/$file"
     fi
     ln -s "$code_path/$file" "$HOME/.$target_file"
 done

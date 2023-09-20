@@ -45,6 +45,12 @@ if [ ! -f "$HOME/.local/bin/delta" ]; then
     rm "delta-$delta_release-x86_64-unknown-linux-musl.tar.gz"
 fi
 
+# install appman
+if [ ! -f "$HOME/.local/bin/appman" ]; then
+    curl -LJR https://raw.githubusercontent.com/ivan-hc/AppMan/main/appman -o "$HOME/.local/bin/appman"
+    chmod +x "$HOME/.local/bin/appman"
+fi
+
 # create backup and link dotfiles
 for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then

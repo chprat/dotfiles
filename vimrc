@@ -61,6 +61,8 @@ Plug 'godlygeek/tabular',
 Plug 'preservim/vim-markdown',
 " restructuredText
 Plug 'habamax/vim-rst',
+" sensible vim defaults
+Plug 'tpope/vim-sensible'
 call plug#end()
 " show NERDTree with CTRL-e
 nnoremap <C-e> :NERDTreeToggle<CR>

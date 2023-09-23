@@ -1,4 +1,3 @@
-
 # easier navigation
 # shellcheck shell=bash
 bind "set completion-ignore-case on"
@@ -26,7 +25,6 @@ function rme () {
 
 # update system
 function sysupgr () {
-    set -e
     sudo apt update
     sudo apt upgrade -y
     sudo apt dist-upgrade -y
@@ -35,15 +33,12 @@ function sysupgr () {
     if which snap > /dev/null; then
         sudo snap refresh
     fi
-    set +e
 }
 
 # copy files to NAS
 function backup () {
-    set -e
     rsync -avhP --delete "$HOME/.ssh/" "$HOME/data/ssh"
     rsync -avhP --delete "$HOME/data/" "rpi48:/data/staging/$HOSTNAME"
-    set +e
 }
 
 # overwrite local files from NAS

@@ -51,6 +51,12 @@ if [ ! -f "$HOME/.local/bin/appman" ]; then
     chmod +x "$HOME/.local/bin/appman"
 fi
 
+# install TPM
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    mkdir -p "$HOME/.tmux/plugins/tpm"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+
 # create backup and link dotfiles
 for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then

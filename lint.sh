@@ -7,4 +7,4 @@ echo "Running editorconfig-checker"
 "$HOME/.local/bin/ec" -exclude "\\.git"
 
 echo "Running hadolint"
-hadolint Containerfile
+hadolint Dockerfile

@@ -1,3 +1,5 @@
+" disable compatibility with vi
+set nocompatible
 " allow tab completition while opening files
 set wildmenu
 " show line numbers

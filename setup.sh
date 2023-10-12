@@ -65,8 +65,10 @@ for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
         target_file=".$file"
     fi
     if [ ! -L "$HOME/$target_file" ]; then
-        mkdir -p "$code_path/backup"
-        mv "$HOME/$target_file" "$code_path/backup/$file"
+        if [ -f "$HOME/$target_file" ]; then
+            mkdir -p "$code_path/backup"
+            mv "$HOME/$target_file" "$code_path/backup/$file"
+        fi
         ln -s "$code_path/$file" "$HOME/$target_file"
     fi
 done

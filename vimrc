@@ -2,8 +2,8 @@
 set nocompatible
 " allow tab completition while opening files
 set wildmenu
-" show line numbers
-set number
+" show hybrid (real number for current line, others relative) line numbers
+set number relativenumber
 " indention with 4 whitespaces
 set tabstop=4
 set expandtab

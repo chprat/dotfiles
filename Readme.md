@@ -3,6 +3,39 @@
 This repository contains the dotfiles (common configuration files within the
 Linux home directory) and some configuration hints for other services.
 
+## Requirements to work with the repository
+
+*git* is required to clone the repository. The *setup.sh* script relies on
+*sudo* to gain elevated privileges. It's usually enough to add the user to the
+*sudo* or *wheel* (depends on the distribution) group and relog. The script is
+also only tested on Debian/Ubuntu based distributions.
+
+```
+su -c usermod -aG sudo <username>
+sudo apt update && sudo apt install -y git
+```
+
+### Running the linters
+
+To run the linters of this repository, *docker* and *make* are required. Follow
+[Install docker](#install-docker) for a guide to install *docker* and install
+*make* with `sudo apt install -y make`, when it's not automatically installed.
+The linters then can be run with the `make` command.
+
+## Install docker
+
+To install *docker* from the default repositories, execute the following
+commands:
+
+```
+sudo apt update && sudo apt install -y docker.io docker-compose
+sudo usermod -aG docker $USER
+```
+
+The included version is usually a little dated and there a lot of instructions
+can be found online to install a version from
+[docker.com](https://www.docker.com/).
+
 ## NFS configuration for network boot
 
 This configuration is used to boot embedded devices via NFS. The file is

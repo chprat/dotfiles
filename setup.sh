@@ -57,6 +57,14 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
+# install lazygit
+if [ ! -f "$HOME/.local/bin/lazygit" ]; then
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz -C "$HOME/.local/bin" lazygit
+    rm lazygit.tar.gz
+fi
+
 # create backup and link dotfiles
 for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
     if [ "$file" = "userhome-hidden" ]; then

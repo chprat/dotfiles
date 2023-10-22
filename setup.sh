@@ -3,8 +3,6 @@
 dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
-delta_release="0.16.5"
-
 # install packages
 xargs sudo apt install -y < "$code_path/packages"
 
@@ -40,9 +38,10 @@ fi
 
 # install delta
 if [ ! -f "$HOME/.local/bin/delta" ]; then
-    curl -LOJR "https://github.com/dandavison/delta/releases/download/$delta_release/delta-$delta_release-x86_64-unknown-linux-musl.tar.gz"
-    tar xf "delta-$delta_release-x86_64-unknown-linux-musl.tar.gz" -C "$HOME/.local/bin" "delta-$delta_release-x86_64-unknown-linux-musl/delta" --strip-components=1
-    rm "delta-$delta_release-x86_64-unknown-linux-musl.tar.gz"
+    DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+    curl -Lo delta.tar.gz "https://github.com/dandavison/delta/releases/download/$DELTA_VERSION/delta-$DELTA_VERSION-x86_64-unknown-linux-musl.tar.gz"
+    tar xf delta.tar.gz -C "$HOME/.local/bin" "delta-$DELTA_VERSION-x86_64-unknown-linux-musl/delta" --strip-components=1
+    rm delta.tar.gz
 fi
 
 # install appman

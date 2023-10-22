@@ -36,6 +36,16 @@ The included version is usually a little dated and there a lot of instructions
 can be found online to install a version from
 [docker.com](https://www.docker.com/).
 
+## Additional tools
+
+These helpful tools are not automatically installed with the repository:
+
+```
+sudo apt update && sudo apt install -y \
+    ghostwriter \
+    keepassxc
+```
+
 ## NFS configuration for network boot
 
 This configuration is used to boot embedded devices via NFS. The file is

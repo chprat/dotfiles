@@ -46,6 +46,16 @@ sudo apt update && sudo apt install -y \
     keepassxc
 ```
 
+## Gnome shell extensions
+
+These extensions for gnome shell are helpful:
+
+- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Freon](https://extensions.gnome.org/extension/841/freon/) (requires
+  lm-sensors)
+- [Simple monitor](https://extensions.gnome.org/extension/3891/simple-monitor/)
+
 ## NFS configuration for network boot
 
 This configuration is used to boot embedded devices via NFS. The file is

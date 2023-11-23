@@ -38,12 +38,12 @@ function sysupgr () {
 # copy files to NAS
 function backup () {
     rsync -avhP --delete "$HOME/.ssh/" "$HOME/data/ssh"
-    rsync -avhP --delete "$HOME/data/" "rpi48:/data/staging/$HOSTNAME"
+    rsync -avhP --delete "$HOME/data/" "eq12:data/staging/$HOSTNAME"
 }
 
 # overwrite local files from NAS
-function rpisync () {
-    rsync -avhP --delete rpi48:/data/ "$HOME/data/"
+function serversync () {
+    rsync -avhP --delete eq12:/data/ "$HOME/data/"
 }
 
 # Yocto directory exports FAG

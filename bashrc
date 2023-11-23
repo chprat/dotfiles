@@ -79,3 +79,5 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 # shellcheck source=/dev/null
 source /usr/share/bash-completion/completions/fzf
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+alias kas='./kas-container --runtime-args "--net host" --ssh-dir ~/.ssh/'

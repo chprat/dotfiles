@@ -4,6 +4,7 @@
     graph = log --graph --decorate --oneline --all
     ddiff = difftool --dir-diff --tool=meld
     can = commit --amend --no-edit
+    rc = rebase --continue
 [credential]
     helper = store
 [core]

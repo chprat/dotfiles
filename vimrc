@@ -9,7 +9,7 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 " file type specific indent
-autocmd Filetype rst setlocal ts=3 sw=3 expandtab
+autocmd Filetype rst setlocal ts=2 sw=2 expandtab
 autocmd Filetype dts setlocal ts=4 sw=4 noexpandtab
 " indent new line like the line before
 set autoindent

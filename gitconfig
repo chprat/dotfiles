@@ -3,6 +3,7 @@
 [alias]
     graph = log --graph --decorate --oneline --all
     ddiff = difftool --dir-diff --tool=meld
+    can = commit --amend --no-edit
 [credential]
     helper = store
 [core]

@@ -17,10 +17,9 @@ sudo apt update && sudo apt install -y git
 
 ### Running the linters
 
-To run the linters of this repository, *docker* and *make* are required. Follow
-[Install docker](#install-docker) for a guide to install *docker* and install
-*make* with `sudo apt install -y make`, when it's not automatically installed.
-The linters then can be run with the `make` command.
+To run the linters of this repository, *docker* is required. Follow
+[Install docker](#install-docker) for a guide how to install it.  The linters
+then can be run with the `lint.sh` script.
 
 ## Install docker
 

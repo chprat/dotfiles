@@ -54,6 +54,7 @@ These extensions for gnome shell are helpful:
 - [Freon](https://extensions.gnome.org/extension/841/freon/) (requires
   lm-sensors)
 - [Simple monitor](https://extensions.gnome.org/extension/3891/simple-monitor/)
+- [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 
 ## NFS configuration for network boot
 

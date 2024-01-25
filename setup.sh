@@ -44,12 +44,6 @@ if [ ! -f "$HOME/.local/bin/delta" ]; then
     rm delta.tar.gz
 fi
 
-# install appman
-if [ ! -f "$HOME/.local/bin/appman" ]; then
-    curl -LJR https://raw.githubusercontent.com/ivan-hc/AppMan/main/appman -o "$HOME/.local/bin/appman"
-    chmod +x "$HOME/.local/bin/appman"
-fi
-
 # install TPM
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     mkdir -p "$HOME/.tmux/plugins/tpm"

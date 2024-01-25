@@ -1,5 +1,4 @@
 autojump
-binutils
 curl
 fzf
 git
@@ -13,4 +12,3 @@ rsync
 tmux
 vim
 vim-gtk3
-zsync

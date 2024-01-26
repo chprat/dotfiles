@@ -88,12 +88,6 @@ BB_NUMBER_THREADS ?= "${@int(oe.utils.cpu_count()/4)}"
 PARALLEL_MAKE ?= "-j ${@int(oe.utils.cpu_count()/4)}"
 ```
 
-## Hide files in nautilus
-
-To hide files or folder in nautilus, without prepending a dot to the file name,
-you can create a file named `.hidden` in the folder and add the files/folders
-to hide (one file/folder per line).
-
 ## LabGrid .bashrc aliases
 
 These commands will simplify the usage of LabGrid in multiple locations with

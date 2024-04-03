@@ -82,3 +82,4 @@ source /usr/share/bash-completion/completions/fzf
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 alias kas='./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache" --ssh-dir ~/.ssh/'
+alias qtcreator='QT_QPA_PLATFORM=wayland /opt/Qt/Tools/QtCreator/bin/qtcreator &'

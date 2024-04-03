@@ -50,6 +50,7 @@ function serversync () {
 function fagexports () {
     export DL_DIR=/var/yocto/fag/kirkstone-downloads-cache
     export SSTATE_DIR=/var/yocto/fag/kirkstone-sstate-cache
+    export CCACHE_DIR=/var/yocto/ccache
 }
 
 # start webex in X11 session
@@ -80,4 +81,4 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/bash-completion/completions/fzf
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-alias kas='./kas-container --runtime-args "--net host" --ssh-dir ~/.ssh/'
+alias kas='./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache" --ssh-dir ~/.ssh/'

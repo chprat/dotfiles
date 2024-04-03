@@ -5,6 +5,9 @@
     ddiff = difftool --dir-diff --tool=meld
     can = commit --amend --no-edit
     rc = rebase --continue
+    fap = fetch --all --prune
+    hr = reset --hard @{u}
+    fp = push --force-with-lease
 [credential]
     helper = store
 [core]

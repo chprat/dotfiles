@@ -59,12 +59,8 @@ if [ ! -f "$HOME/.local/bin/lazygit" ]; then
 fi
 
 # create backup and link dotfiles
-for file in gitconfig minirc.dfl tmux.conf userhome-hidden vimrc; do
-    if [ "$file" = "userhome-hidden" ]; then
-        target_file=".hidden"
-    else
-        target_file=".$file"
-    fi
+for file in gitconfig minirc.dfl tmux.conf vimrc; do
+    target_file=".$file"
     if [ ! -L "$HOME/$target_file" ]; then
         if [ -f "$HOME/$target_file" ]; then
             mkdir -p "$code_path/backup"

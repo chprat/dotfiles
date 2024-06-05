@@ -62,6 +62,16 @@ These extensions for gnome shell are helpful:
 You need to install `gnome-browser-connector` and a browser plugin for easy
 single-click installation.
 
+## Allow users to read kernel buffer
+
+On more recent Ubuntu systems accessing the kernel buffer via e.g. `dmesg` is
+restricted. This security feature can be disabled, by uncommenting the
+following line in `/etc/sysctl.d/10-kernel-hardening.conf`:
+
+```
+kernel.dmesg_restrict = 0
+```
+
 ## NFS configuration for network boot
 
 This configuration is used to boot embedded devices via NFS. The file is

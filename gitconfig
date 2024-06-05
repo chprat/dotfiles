@@ -43,5 +43,6 @@
     initializenew = true
 [push]
     recurseSubmodules = check
+    autoSetupRemote = true
 [include]
     path = ~/.gitconfig.user

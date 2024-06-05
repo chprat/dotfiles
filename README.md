@@ -42,7 +42,8 @@ These helpful tools are not automatically installed with the repository:
 ```
 sudo apt update && sudo apt install -y \
     ghostwriter \
-    keepassxc
+    keepassxc \
+    nextcloud-desktop
 ```
 
 ## Gnome shell extensions

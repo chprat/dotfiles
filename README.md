@@ -59,6 +59,9 @@ These extensions for gnome shell are helpful:
 - [Simple monitor](https://extensions.gnome.org/extension/3891/simple-monitor/)
 - [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 
+You need to install `gnome-browser-connector` and a browser plugin for easy
+single-click installation.
+
 ## NFS configuration for network boot
 
 This configuration is used to boot embedded devices via NFS. The file is

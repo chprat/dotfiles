@@ -54,6 +54,8 @@ These extensions for gnome shell are helpful:
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - [Freon](https://extensions.gnome.org/extension/841/freon/) (requires
   lm-sensors)
+- [Resource Monitor](https://extensions.gnome.org/extension/1634/resource-monitor/)
+  (replaces Freon & Simple monitor)
 - [Simple monitor](https://extensions.gnome.org/extension/3891/simple-monitor/)
 - [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 

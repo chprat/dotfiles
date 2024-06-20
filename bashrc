@@ -37,10 +37,10 @@ function sysupgr () {
     fi
 }
 
-# copy files to NAS
+# backup files with rclone
 function backup () {
     rsync -avhP --delete "$HOME/.ssh/" "$HOME/data/ssh"
-    rsync -avhP --delete "$HOME/data/" "eq12:data/staging/$HOSTNAME"
+    rclone sync "$HOME/data/" "nc:staging/$HOSTNAME/"
 }
 
 # Yocto directory exports FAG

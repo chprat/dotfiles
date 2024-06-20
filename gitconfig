@@ -8,6 +8,7 @@
     fap = fetch --all --prune
     hr = reset --hard @{u}
     fp = push --force-with-lease
+    pb = push -u origin HEAD
 [credential]
     helper = store
 [core]

@@ -25,7 +25,9 @@ function rme () {
 
 # update system
 function sysupgr () {
-    sudo apt update
+    if ! sudo apt update; then
+        return
+    fi
     sudo apt upgrade -y
     sudo apt dist-upgrade -y
     sudo apt autoremove -y

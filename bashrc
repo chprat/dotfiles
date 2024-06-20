@@ -43,11 +43,6 @@ function backup () {
     rsync -avhP --delete "$HOME/data/" "eq12:data/staging/$HOSTNAME"
 }
 
-# overwrite local files from NAS
-function serversync () {
-    rsync -avhP --delete eq12:/data/ "$HOME/data/"
-}
-
 # Yocto directory exports FAG
 function fagexports () {
     export DL_DIR=/var/yocto/fag/kirkstone-downloads-cache

@@ -39,7 +39,7 @@ function sysupgr () {
 
 # backup files with rclone
 function backup () {
-    rsync -avhP --delete "$HOME/.ssh/" "$HOME/data/ssh"
+    cp "$HOME/.ssh/config" "$HOME/data/ssh-config"
     rclone sync "$HOME/data/" "nc:staging/$HOSTNAME/"
 }
 

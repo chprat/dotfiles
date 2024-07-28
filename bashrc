@@ -47,7 +47,7 @@ function backup () {
 function fagexports () {
     export DL_DIR=/var/yocto/fag/kirkstone-downloads-cache
     export SSTATE_DIR=/var/yocto/fag/kirkstone-sstate-cache
-    export CCACHE_DIR=/var/yocto/ccache
+    export CCACHE_DIR=/var/yocto/fag/ccache
 }
 
 # start webex in X11 session

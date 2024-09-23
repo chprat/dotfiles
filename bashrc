@@ -80,3 +80,19 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 alias kas='./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache" --ssh-dir ~/.ssh/'
 alias qtcreator='QT_QPA_PLATFORM=wayland /opt/Qt/Tools/QtCreator/bin/qtcreator &'
+
+# build all kas configurations
+function kas-build-all () {
+    fagexports
+    for config in *.yml; do
+        echo ""
+        echo "Downloading $config"
+        [ -f "$config" ] && kas build "$config":.kas/local.yaml -- --runall=fetch || return
+    done
+    for config in *.yml; do
+        echo ""
+        echo "Building $config"
+        kas clean
+        [ -f "$config" ] && kas build "$config":.kas/local.yaml -- -k || return
+    done
+}

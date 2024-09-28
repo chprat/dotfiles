@@ -70,6 +70,18 @@ function exRFS () {
     tar xf "$(getRFS)" -C rootfs
 }
 
+# extract IPKs
+function exIPK () {
+    for i in *.ipk; do
+        FOLDER_NAME="$(echo "$i" | awk -F_ '{ print $1 }')"
+        mkdir "$FOLDER_NAME"
+        ar x "$i" --output "$FOLDER_NAME" data.tar.xz
+        tar xf "$FOLDER_NAME/data.tar.xz" -C "$FOLDER_NAME"
+        rm "$FOLDER_NAME/data.tar.xz"
+        rm "$i"
+    done
+}
+
 # enable autojump
 # shellcheck source=/dev/null
 source /usr/share/autojump/autojump.sh

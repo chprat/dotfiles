@@ -6,6 +6,9 @@ bind "set show-all-if-ambiguous on"
 # add ~/.local/bin to PATH
 PATH="$PATH":"$HOME"/.local/bin
 
+# set default editor
+export EDITOR=$(which vim)
+
 # cd .. multiple times
 function cdn () {
     for _i in $(seq "$1"); do

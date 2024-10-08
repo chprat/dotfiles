@@ -69,3 +69,8 @@ for file in gitconfig minirc.dfl tmux.conf vimrc; do
         ln -s "$code_path/$file" "$HOME/$target_file"
     fi
 done
+
+# disable dmesg access restrictions
+if  [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
+    echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
+fi

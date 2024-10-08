@@ -8,7 +8,7 @@ xargs sudo apt install -y < "$code_path/packages"
 
 # add user to dialout
 if ! groups | grep -q dialout; then
-    sudo usermod -aG dialout "$USERNAME"
+    sudo usermod -aG dialout "$USER"
 fi
 
 # create ~/.local/bin

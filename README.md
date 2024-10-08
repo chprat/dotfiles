@@ -17,8 +17,8 @@ sudo apt update && sudo apt install -y git
 
 ### Running the linters
 
-To run the linters of this repository, *docker* is required. Follow
-[Install docker](#install-docker) for a guide how to install it.  The linters
+To run the linters of this repository, *docker* or *podman* is required. Follow
+[Install docker](#install-docker) for a guide how to install it. The linters
 then can be run with the `lint.sh` script.
 
 ## Install docker

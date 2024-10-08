@@ -106,3 +106,23 @@ alias lgs='. <path-to-labgrid>/labgrid-venv/bin/activate'
 function lghome () { export LG_CROSSBAR="ws://<srv1>:20408/ws" && export LG_PLACE=<place> && export LG_ENV=<environment>.yaml && lgs && lgcomp ; }
 function lgoffice () { export LG_CROSSBAR="ws://<srv2>:20408/ws" && export LG_PLACE=<place> && export LG_ENV=<environment>.yaml && lgs && lgcomp ; }
 ```
+
+## Helpful one-liners
+
+Find all (identical) duplicates and delete the ones in the `v2` directory:
+
+```
+fdupes -r . |grep "./v2" |xargs -d'\n' rm
+```
+
+Find all files bigger than 1 GB in the current directory and sub-directories:
+
+```
+find . -type f -size +1G
+```
+
+Get the size of all files/folders in current directory and sort them by size:
+
+```
+for i in *; do du -sh "$i"; done |sort -hr
+```

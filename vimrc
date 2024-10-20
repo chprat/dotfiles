@@ -11,6 +11,7 @@ set number relativenumber
 set tabstop=4
 set expandtab
 set shiftwidth=4
+set shiftround  " makes < and > indent to multiples of shiftwidth
 
 " file type specific indent
 autocmd Filetype rst setlocal ts=2 sw=2 expandtab

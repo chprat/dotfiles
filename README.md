@@ -46,6 +46,9 @@ sudo apt update && sudo apt install -y \
     nextcloud-desktop
 ```
 
+- wezterm installation instruction can be found
+  [here](https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3)
+
 ## Gnome shell extensions
 
 These extensions for gnome shell are helpful:

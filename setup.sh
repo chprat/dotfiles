@@ -59,7 +59,7 @@ if [ ! -f "$HOME/.local/bin/lazygit" ]; then
 fi
 
 # create backup and link dotfiles
-for file in gitconfig minirc.dfl tmux.conf vimrc; do
+for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
     target_file=".$file"
     if [ ! -L "$HOME/$target_file" ]; then
         if [ -f "$HOME/$target_file" ]; then

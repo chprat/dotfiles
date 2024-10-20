@@ -58,6 +58,9 @@ set smartcase
 " enable spell checking
 set spell spelllang=en_us
 
+" keep this amount of context lines when scrolling
+set scrolloff=10
+
 " vim-plug plugin management (https://github.com/junegunn/vim-plug)
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))

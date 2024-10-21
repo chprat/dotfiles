@@ -36,18 +36,18 @@ if [ ! -f "$HOME/.gitconfig.user" ]; then
     echo "Please update the $HOME/.gitconfig.user configuration!"
 fi
 
+# install TPM
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    mkdir -p "$HOME/.tmux/plugins/tpm"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+
 # install delta
 if [ ! -f "$HOME/.local/bin/delta" ]; then
     DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
     curl -Lo delta.tar.gz "https://github.com/dandavison/delta/releases/download/$DELTA_VERSION/delta-$DELTA_VERSION-x86_64-unknown-linux-musl.tar.gz"
     tar xf delta.tar.gz -C "$HOME/.local/bin" "delta-$DELTA_VERSION-x86_64-unknown-linux-musl/delta" --strip-components=1
     rm delta.tar.gz
-fi
-
-# install TPM
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    mkdir -p "$HOME/.tmux/plugins/tpm"
-    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
 # install lazygit

@@ -4,6 +4,7 @@ dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
 DELTA_VERSION="0.18.2"
+LAZYGIT_VERSION="0.44.1"
 
 # install packages
 xargs sudo apt install -y < "$code_path/packages"
@@ -60,11 +61,18 @@ else
 fi
 
 # install lazygit
-if [ ! -f "$HOME/.local/bin/lazygit" ]; then
-    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+function install_lazygit () {
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     tar xf lazygit.tar.gz -C "$HOME/.local/bin" lazygit
     rm lazygit.tar.gz
+}
+if [ ! -f "$HOME/.local/bin/lazygit" ]; then
+    install_lazygit
+else
+    LAZYGIT_VERSION_INS=$("$HOME/.local/bin/lazygit" --version | sed -e 's/, /\n/g' | grep ^version | cut -d'=' -f2)
+    if [ "$LAZYGIT_VERSION" != "$LAZYGIT_VERSION_INS" ]; then
+        install_lazygit
+    fi
 fi
 
 # create backup and link dotfiles

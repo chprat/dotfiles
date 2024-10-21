@@ -1,0 +1,12 @@
+name: tool update checker
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 16 * * 5'
+jobs:
+  check-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: ./ver-check.sh

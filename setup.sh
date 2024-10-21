@@ -5,6 +5,7 @@ code_path=$(realpath "$dir_name")
 
 DELTA_VERSION="0.18.2"
 LAZYGIT_VERSION="0.44.1"
+MDCAT_VERSION="2.5.0"
 
 # install packages
 xargs sudo apt install -y < "$code_path/packages"
@@ -72,6 +73,22 @@ else
     LAZYGIT_VERSION_INS=$("$HOME/.local/bin/lazygit" --version | sed -e 's/, /\n/g' | grep ^version | cut -d'=' -f2)
     if [ "$LAZYGIT_VERSION" != "$LAZYGIT_VERSION_INS" ]; then
         install_lazygit
+    fi
+fi
+
+# install mdcat
+function install_mdcat () {
+    curl -Lo mdcat.tar.gz "https://github.com/swsnr/mdcat/releases/latest/download/mdcat-${MDCAT_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+    tar xf mdcat.tar.gz --strip-components=1 -C "$HOME/.local/bin" "mdcat-${MDCAT_VERSION}-x86_64-unknown-linux-musl/mdcat"
+    rm mdcat.tar.gz
+}
+if [ ! -f "$HOME/.local/bin/mdcat" ]; then
+    install_mdcat
+    ln -s "$HOME/.local/bin/mdcat" "$HOME/.local/bin/mdless"
+else
+    MDCAT_VERSION_INS=$("$HOME/.local/bin/mdcat" --version | head -n1 | cut -d' ' -f2)
+    if [ "$MDCAT_VERSION" != "$MDCAT_VERSION_INS" ]; then
+        install_mdcat
     fi
 fi
 

@@ -3,6 +3,8 @@
 dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
+DELTA_VERSION="0.18.2"
+
 # install packages
 xargs sudo apt install -y < "$code_path/packages"
 
@@ -43,11 +45,18 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 
 # install delta
-if [ ! -f "$HOME/.local/bin/delta" ]; then
-    DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+function install_delta () {
     curl -Lo delta.tar.gz "https://github.com/dandavison/delta/releases/download/$DELTA_VERSION/delta-$DELTA_VERSION-x86_64-unknown-linux-musl.tar.gz"
     tar xf delta.tar.gz -C "$HOME/.local/bin" "delta-$DELTA_VERSION-x86_64-unknown-linux-musl/delta" --strip-components=1
     rm delta.tar.gz
+}
+if [ ! -f "$HOME/.local/bin/delta" ]; then
+    install_delta
+else
+    DELTA_VERSION_INS=$("$HOME/.local/bin/delta" --version | sed -e 's/\x1b\[[0-9;]*m//g' | cut -d' ' -f2)
+    if [ "$DELTA_VERSION" != "$DELTA_VERSION_INS" ]; then
+        install_delta
+    fi
 fi
 
 # install lazygit

@@ -24,3 +24,6 @@ ec --exclude "\\.git|backup"
 
 echo "Running hadolint"
 "$HOME/hadolint" Containerfile
+
+echo "Running actionlint"
+"$HOME/actionlint"

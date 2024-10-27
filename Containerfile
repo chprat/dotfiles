@@ -20,3 +20,10 @@ RUN python3 -m venv --upgrade-deps "$HOME/linter-venv" \
     && python3 -m pip install --no-cache-dir \
     editorconfig-checker \
     && deactivate
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN ACTIONLINT_VERSION=$(curl -s "https://api.github.com/repos/rhysd/actionlint/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') \
+    && export ACTIONLINT_VERSION \
+    && curl -Lo "$HOME/actionlint.tar.gz" "https://github.com/rhysd/actionlint/releases/download/v$ACTIONLINT_VERSION/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" \
+    && tar xf "$HOME/actionlint.tar.gz" -C "$HOME" actionlint \
+    && rm "$HOME/actionlint.tar.gz"

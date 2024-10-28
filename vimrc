@@ -103,7 +103,7 @@ Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " show NERDTree with CTRL-e
-nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif

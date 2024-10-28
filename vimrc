@@ -97,6 +97,9 @@ Plug 'habamax/vim-rst',
 " sensible vim defaults
 Plug 'tpope/vim-sensible'
 
+" tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 " show NERDTree with CTRL-e

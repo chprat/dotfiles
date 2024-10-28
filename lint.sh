@@ -9,7 +9,11 @@ elif which docker &> /dev/null; then
 fi
 
 if [ -n "$CONTAINER_CHECK_FILE" ] && [ ! -f "$CONTAINER_CHECK_FILE" ]; then
-    $CONTAINER_CMD build -t dotfile-linter -f Containerfile .
+    if [ "$CONTAINER_CMD" == "podman" ]; then
+        SPECIAL_OPTS="--format docker"
+    fi
+    # shellcheck disable=SC2086
+    $CONTAINER_CMD build $SPECIAL_OPTS -t dotfile-linter -f Containerfile .
     $CONTAINER_CMD run --rm --volume "$(pwd):/code:ro" -w /code dotfile-linter /code/lint.sh
     exit
 fi

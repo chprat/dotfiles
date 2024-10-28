@@ -24,7 +24,7 @@ shellcheck ./*.sh
 echo "Running editorconfig-checker"
 # shellcheck disable=SC1091
 . "$HOME/linter-venv/bin/activate"
-ec --exclude "\\.git|backup"
+ec --exclude "\\.git|backup|nvim\/lazy-lock\\.json"
 
 echo "Running hadolint"
 "$HOME/hadolint" Containerfile

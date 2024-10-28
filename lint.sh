@@ -31,3 +31,6 @@ echo "Running hadolint"
 
 echo "Running actionlint"
 "$HOME/actionlint"
+
+echo "Running luacheck"
+luacheck -q --globals vim -- nvim/

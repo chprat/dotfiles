@@ -59,7 +59,7 @@ if [ ! -f "$HOME/.local/bin/lazygit" ]; then
 fi
 
 # create backup and link dotfiles
-for file in gitconfig minirc.dfl tmux.conf vimrc; do
+for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
     target_file=".$file"
     if [ ! -L "$HOME/$target_file" ]; then
         if [ -f "$HOME/$target_file" ]; then
@@ -73,4 +73,13 @@ done
 # disable dmesg access restrictions
 if  [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
     echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
+fi
+
+# add wezterm repository
+if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+fi
+if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo apt update
 fi

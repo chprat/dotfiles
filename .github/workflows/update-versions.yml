@@ -1,10 +1,10 @@
-name: tool update checker
+name: Update versions
 on:
   workflow_dispatch:
   schedule:
   - cron: '0 16 * * 5'
 jobs:
-  check-tools:
+  update-tools:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code

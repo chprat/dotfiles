@@ -9,6 +9,7 @@ meld
 minicom
 ranger
 rclone
+ripgrep
 rsync
 tmux
 vim

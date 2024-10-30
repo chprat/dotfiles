@@ -35,6 +35,3 @@ if [ "$MDCAT_VERSION_NEW" != "$MDCAT_VERSION_INS" ]; then
 else
     echo "No new version available for mdcat"
 fi
-
-git status
-git log --oneline origin/main..HEAD

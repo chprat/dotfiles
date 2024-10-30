@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
   - cron: '0 16 * * 5'
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   update-tools:
     runs-on: ubuntu-latest
@@ -14,3 +17,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           ./ver-check.sh
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7

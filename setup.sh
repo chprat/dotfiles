@@ -5,7 +5,7 @@ code_path=$(realpath "$dir_name")
 
 DELTA_VERSION="0.18.2"
 LAZYGIT_VERSION="0.44.1"
-MDCAT_VERSION="2.4.0"
+MDCAT_VERSION="2.5.0"
 
 # install packages
 xargs sudo apt install -y < "$code_path/packages"

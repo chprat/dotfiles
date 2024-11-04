@@ -44,3 +44,6 @@ vim.opt.spell = true
 
 -- highlight current line
 vim.opt.cursorline = true
+
+-- use system clipboard as default register
+vim.opt.clipboard:append("unnamedplus")

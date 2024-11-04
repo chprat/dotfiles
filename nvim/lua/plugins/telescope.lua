@@ -35,6 +35,7 @@ return {
             keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
             keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Telescope recent files" })
             keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Telescope live grep for string under cursor" })
+            keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
         end,
     },
     {

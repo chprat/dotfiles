@@ -87,10 +87,7 @@ function exIPK () {
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh || printf "\nCould not find autojump integration"
 
 # enable fzf
-# shellcheck source=/dev/null
-[[ -s /usr/share/doc/fzf/examples/key-bindings.bash ]] && source /usr/share/doc/fzf/examples/key-bindings.bash || printf "\nCould not find fzf keybinds"
-# shellcheck source=/dev/null
-[[ -s /usr/share/bash-completion/completions/fzf ]] && source /usr/share/bash-completion/completions/fzf || printf "\nCould not find fzf completions"
+eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 alias kas='./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache" --ssh-dir ~/.ssh/'

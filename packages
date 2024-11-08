@@ -1,6 +1,5 @@
 autojump
 curl
-fzf
 git
 luarocks
 make

@@ -53,6 +53,10 @@ def get_asset_info(short_url, id):
             x86_64 = [v for v in linux if 'x86_64'.casefold() in v['name'].casefold()]
             if len(x86_64) == 1:
                 return x86_64[0]
+            if len(x86_64) == 0:
+                x86_64 = [v for v in linux if 'amd64'.casefold() in v['name'].casefold()]
+                if len(x86_64) == 1:
+                    return x86_64[0]
             musl = [v for v in x86_64
                     if 'musl'.casefold() in v['name'].casefold()]
             if len(musl) == 1:
@@ -107,6 +111,8 @@ def get_local_version(name):
                 version = version_field.split('=')[1]
             elif name == 'act':
                 version = cmd_output.stdout.split()[2]
+            elif name == 'fzf':
+                version = cmd_output.stdout.split()[0]
             else:
                 version = cmd_output.stdout.split()[1]
         else:
@@ -147,7 +153,7 @@ def extract_program(file_name, package_name):
     install_path = os.path.expanduser('~/.local/bin/')
     base_cmd = f'tar xf {file_name} -C {install_path}'.split()
 
-    if package_name == 'lazygit' or package_name == 'act':
+    if package_name == 'lazygit' or package_name == 'act' or package_name == 'fzf':
         base_cmd.append(f'{package_name}')
     else:
         base_cmd.append('--strip-components=1')

@@ -112,3 +112,6 @@ function kas-build-all () {
         [ -f "$config" ] && kas build "$config":.kas/local.yaml -- -k || return
     done
 }
+
+# enable starship
+eval "$(starship init bash)"

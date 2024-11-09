@@ -34,3 +34,6 @@ echo "Running actionlint"
 
 echo "Running luacheck"
 luacheck -q --globals vim -- nvim/
+
+echo "Running flake8"
+flake8 ./*.py

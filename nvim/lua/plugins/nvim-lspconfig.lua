@@ -17,7 +17,11 @@ return {
                 },
             })
             mason_tool_installer.setup({
-                ensure_installed = { "luacheck" },
+                ensure_installed = {
+                    "luacheck",
+                    "isort",
+                    "flake8",
+                },
             })
         end,
     },

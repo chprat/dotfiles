@@ -7,7 +7,10 @@ return {
             local mason_lspconfig = require("mason-lspconfig")
             mason.setup({})
             mason_lspconfig.setup({
-                ensure_installed = { "lua_ls" },
+                ensure_installed = {
+                    "lua_ls",
+                    "pylsp",
+                },
             })
         end,
     },
@@ -80,6 +83,17 @@ return {
                     Lua = {
                         diagnostics = {
                             globals = { "vim" },
+                        },
+                    },
+                },
+            })
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                maxLineLength = 100,
+                            },
                         },
                     },
                 },

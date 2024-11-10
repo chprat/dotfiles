@@ -77,3 +77,4 @@ for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done
+link_file "nvim" "$HOME/.config/nvim"

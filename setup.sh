@@ -59,14 +59,21 @@ fi
 # install github packages
 ./ghpkg.py download
 
+function link_file (){
+    file="$1"
+    dest="$2"
+    src="$code_path/$file"
+    if [ ! -L "$dest" ]; then
+        if [ -f "$dest" ]; then
+            mkdir -p "$code_path/backup"
+            mv "$dest" "$code_path/backup/$file"
+        fi
+        ln -s "$src" "$dest"
+    fi
+}
+
 # create backup and link dotfiles
 for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
     target_file=".$file"
-    if [ ! -L "$HOME/$target_file" ]; then
-        if [ -f "$HOME/$target_file" ]; then
-            mkdir -p "$code_path/backup"
-            mv "$HOME/$target_file" "$code_path/backup/$file"
-        fi
-        ln -s "$code_path/$file" "$HOME/$target_file"
-    fi
+    link_file "$file" "$HOME/$target_file"
 done

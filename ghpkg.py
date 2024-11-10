@@ -49,6 +49,7 @@ def get_asset_info(short_url, id):
     try:
         with urllib.request.urlopen(url) as url:
             assets = list({'id': elem['id'], 'name': elem['name']} for elem in json.load(url))
+            assets = [v for v in assets if not (v['name'].casefold().endswith('sha256'))]
             linux = [v for v in assets if 'linux'.casefold() in v['name'].casefold()]
             x86_64 = [v for v in linux if 'x86_64'.casefold() in v['name'].casefold()]
             if len(x86_64) == 1:

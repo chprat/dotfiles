@@ -110,15 +110,7 @@ def get_local_version(name):
                                     stderr=subprocess.PIPE,
                                     text=True)
         if (cmd_output.returncode == 0):
-            if name == 'lazygit':
-                version_field = cmd_output.stdout.split(', ')[3]
-                version = version_field.split('=')[1]
-            elif name == 'act':
-                version = cmd_output.stdout.split()[2]
-            elif name == 'fzf':
-                version = cmd_output.stdout.split()[0]
-            else:
-                version = cmd_output.stdout.split()[1]
+            version = re.search(r'\d*\.\d*\.\d*', cmd_output.stdout).group()
         else:
             sys.exit(f'Running {name} returned {cmd_output.returncode}: {cmd_output.stderr}')
         return version

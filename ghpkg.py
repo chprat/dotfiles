@@ -155,6 +155,11 @@ def extract_program(file_name, package_name):
 
     if package_name == 'lazygit' or package_name == 'act' or package_name == 'fzf':
         base_cmd.append(f'{package_name}')
+    elif package_name == 'yazi':
+        base_file_name = file_name.replace('.zip', '')
+        ar_path = f'{base_file_name}/{package_name}'
+        command = f'unzip -j {file_name} {ar_path} -d {install_path}'
+        base_cmd = command.split()
     else:
         base_cmd.append('--strip-components=1')
         base_file_name = file_name.replace('.tar.gz', '')

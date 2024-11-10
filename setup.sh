@@ -42,6 +42,20 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
+# disable dmesg access restrictions
+if  [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
+    echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
+fi
+
+# add wezterm repository
+if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+fi
+if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo apt update
+fi
+
 # install github packages
 ./ghpkg.py download
 
@@ -56,17 +70,3 @@ for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
         ln -s "$code_path/$file" "$HOME/$target_file"
     fi
 done
-
-# disable dmesg access restrictions
-if  [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
-    echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
-fi
-
-# add wezterm repository
-if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
-    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-fi
-if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
-    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-    sudo apt update
-fi

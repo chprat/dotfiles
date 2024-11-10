@@ -61,6 +61,10 @@ def get_asset_info(short_url, id):
                     if 'musl'.casefold() in v['name'].casefold()]
             if len(musl) == 1:
                 return musl[0]
+            elif len(musl) > 1:
+                targz = [v for v in musl if v['name'].casefold().endswith('.tar.gz')]
+                if len(targz) == 1:
+                    return targz[0]
             else:
                 sys.exit(f'No unique file found for {short_url} available: {x86_64}')
 

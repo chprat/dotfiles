@@ -112,6 +112,12 @@ alias gc='git commit'
 alias gd='git diff'
 alias gst='git status'
 
+if command -v eza &>/dev/null; then
+    alias ls='eza'
+    alias ll='eza -alg'
+    alias tree='eza --tree'
+fi
+
 # build all kas configurations
 function kas-build-all() {
     fagexports

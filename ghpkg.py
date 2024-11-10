@@ -171,6 +171,8 @@ def extract_program(file_name, package_name):
         or package_name == "starship"
     ):
         base_cmd.append(f"{package_name}")
+    elif package_name == "eza":
+        base_cmd.append(f"./{package_name}")
     elif package_name == "yazi":
         base_file_name = file_name.replace(".zip", "")
         ar_path = f"{base_file_name}/{package_name}"

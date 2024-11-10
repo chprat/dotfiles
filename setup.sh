@@ -30,8 +30,6 @@ fi
 # uncomment some lines in ~/.bashrc
 sed -i "/bin\/lesspipe/s/^#//" "$HOME/.bashrc"
 sed -i "/grep/s/#//" "$HOME/.bashrc"
-sed -i "/#alias l/s/^#//" "$HOME/.bashrc"
-sed -i "/alias ll/s/^alias ll.*$/alias ll='ls -alFh'/" "$HOME/.bashrc"
 
 # copy ~/.gitconfig.user
 if [ ! -f "$HOME/.gitconfig.user" ]; then

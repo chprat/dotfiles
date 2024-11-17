@@ -4,7 +4,7 @@ dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
 # install packages
-xargs sudo apt install -y < "$code_path/packages"
+xargs sudo apt install -y <"$code_path/packages"
 
 # add user to dialout
 if ! groups | grep -q dialout; then
@@ -21,7 +21,7 @@ fi
 if ! grep -q "source $code_path/bashrc" "$HOME/.bashrc"; then
     mkdir -p "$code_path/backup"
     cp "$HOME/.bashrc" "$code_path/backup/bashrc"
-    echo "source $code_path/bashrc" >> "$HOME/.bashrc"
+    echo "source $code_path/bashrc" >>"$HOME/.bashrc"
 fi
 
 # uncomment some lines in ~/.bashrc
@@ -43,7 +43,7 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 
 # disable dmesg access restrictions
-if  [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
+if [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
     echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
 fi
 
@@ -59,7 +59,7 @@ fi
 # install github packages
 ./ghpkg.py download
 
-function link_file (){
+function link_file() {
     file="$1"
     dest="$2"
     src="$code_path/$file"

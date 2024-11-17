@@ -19,8 +19,5 @@ return {
         vim.keymap.set("n", "<leader>l", function()
             lint.try_lint()
         end, { desc = "Trigger linting for current file" })
-
-        local luacheck = lint.linters.luacheck
-        luacheck.args = { "--formatter", "plain", "--globals", "vim", "--codes", "--ranges", "-" }
     end,
 }

@@ -97,6 +97,12 @@ alias prepare-nfs-fgw='./scripts/deploy-image.sh -n -N /srv/nfs-fgw -r fwk-rpi -
 alias prepare-nfs-mesa-mmi='./scripts/deploy-image.sh -n -N /srv/nfs-mesa-mmi -r fwk-rpi -T -'
 alias prepare-nfs-con='./scripts/deploy-image.sh -n -N /srv/nfs-con -r fwk-rpi -T -'
 
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gst='git status'
+
 # build all kas configurations
 function kas-build-all () {
     fagexports

@@ -121,3 +121,6 @@ function kas-build-all () {
 
 # enable starship
 eval "$(starship init bash)"
+
+# enable direnv
+eval "$(direnv hook bash)"

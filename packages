@@ -1,5 +1,6 @@
 autojump
 curl
+direnv
 fd-find
 git
 luarocks

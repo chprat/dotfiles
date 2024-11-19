@@ -6,7 +6,6 @@ git
 luarocks
 make
 mc
-meld
 minicom
 python3-venv
 rclone

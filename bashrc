@@ -7,7 +7,8 @@ bind "set show-all-if-ambiguous on"
 PATH="$PATH":"$HOME"/.local/bin
 
 # set default editor
-export EDITOR=$(which vim)
+EDITOR=$(which vim)
+export EDITOR
 
 # cd .. multiple times
 function cdn () {

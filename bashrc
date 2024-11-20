@@ -88,8 +88,10 @@ function exIPK() {
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh || printf "\nCould not find autojump integration"
 
 # enable fzf
-eval "$(fzf --bash)"
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+    export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+fi
 
 function kas() {
     if [ -f .git ]; then
@@ -135,7 +137,11 @@ function kas-build-all() {
 }
 
 # enable starship
-eval "$(starship init bash)"
+if command -v starship &>/dev/null; then
+    eval "$(starship init bash)"
+fi
 
 # enable direnv
-eval "$(direnv hook bash)"
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook bash)"
+fi

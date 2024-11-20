@@ -20,6 +20,9 @@ fi
 # create ~/.vim/plugged
 [ ! -d "$HOME/.vim/plugged" ] && mkdir -p "$HOME/.vim/plugged"
 
+# create ~/.config
+[ ! -d "$HOME/.config" ] && mkdir -p "$HOME/.config"
+
 # add source command to ~/.bashrc
 if ! grep -q "source $code_path/bashrc" "$HOME/.bashrc"; then
     mkdir -p "$code_path/backup"

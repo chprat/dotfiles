@@ -11,68 +11,68 @@ EDITOR=$(which vim)
 export EDITOR
 
 # cd .. multiple times
-function cdn () {
+function cdn() {
     for _i in $(seq "$1"); do
         cd ..
     done
 }
 
 # create folder and cd into
-function mcd () {
+function mcd() {
     mkdir -p "$1" && cd "$1" || return
 }
 
 # remove empty directories
-function rme () {
+function rme() {
     find . -type d -empty -print -delete
 }
 
 # update system
-function sysupgr () {
+function sysupgr() {
     if ! sudo apt update; then
         return
     fi
     sudo apt upgrade -y
     sudo apt dist-upgrade -y
     sudo apt autoremove -y
-    dpkg -l |grep ^rc | awk '{ print $2 }' | xargs sudo apt purge -y
-    if which snap > /dev/null; then
+    dpkg -l | grep ^rc | awk '{ print $2 }' | xargs sudo apt purge -y
+    if which snap >/dev/null; then
         sudo snap refresh
     fi
 }
 
 # backup files with rclone
-function backup () {
+function backup() {
     cp "$HOME/.ssh/config" "$HOME/data/ssh-config"
     rclone sync "$HOME/data/" "nc:staging/$HOSTNAME/"
 }
 
 # Yocto directory exports FAG
-function fagexports () {
+function fagexports() {
     export DL_DIR=/var/yocto/fag/kirkstone-downloads-cache
     export SSTATE_DIR=/var/yocto/fag/kirkstone-sstate-cache
     export CCACHE_DIR=/var/yocto/fag/ccache
 }
 
 # start webex in X11 session
-function webex () {
+function webex() {
     XDG_SESSION_TYPE=x11 /opt/Webex/bin/CiscoCollabHost
 }
 
 # find Yocto rootfs archive
-function getRFS () {
+function getRFS() {
     find build/tmp**/deploy/images/ -iname "*rootfs.tar.gz"
 }
 
 # extract Yocto rootfs archive
-function exRFS () {
+function exRFS() {
     rm -rf rootfs
     mkdir rootfs
     tar xf "$(getRFS)" -C rootfs
 }
 
 # extract IPKs
-function exIPK () {
+function exIPK() {
     for i in *.ipk; do
         FOLDER_NAME="$(echo "$i" | awk -F_ '{ print $1 }')"
         mkdir "$FOLDER_NAME"
@@ -91,7 +91,7 @@ function exIPK () {
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-function kas () {
+function kas() {
     if [ -f .git ]; then
         HOST_DIR="$(pwd | rev | cut -d'/' -f2- | rev)"
         CONTAINER_DIR=$(cut -d' ' -f2 .git | rev | cut -d'/' -f3- | rev)
@@ -113,7 +113,7 @@ alias gd='git diff'
 alias gst='git status'
 
 # build all kas configurations
-function kas-build-all () {
+function kas-build-all() {
     fagexports
     for config in *.yml; do
         echo ""

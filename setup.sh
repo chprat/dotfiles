@@ -30,10 +30,6 @@ if ! grep -q "source $code_path/bashrc" "$HOME/.bashrc"; then
     echo "source $code_path/bashrc" >>"$HOME/.bashrc"
 fi
 
-# uncomment some lines in ~/.bashrc
-sed -i "/bin\/lesspipe/s/^#//" "$HOME/.bashrc"
-sed -i "/grep/s/#//" "$HOME/.bashrc"
-
 # copy ~/.gitconfig.user
 if [ ! -f "$HOME/.gitconfig.user" ]; then
     cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"

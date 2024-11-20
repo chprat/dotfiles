@@ -91,7 +91,15 @@ function exIPK () {
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-alias kas='./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache" --ssh-dir ~/.ssh/'
+function kas () {
+    if [ -f .git ]; then
+        HOST_DIR="$(pwd | rev | cut -d'/' -f2- | rev)"
+        CONTAINER_DIR=$(cut -d' ' -f2 .git | rev | cut -d'/' -f3- | rev)
+        WT_OPTION="-v $HOST_DIR:$CONTAINER_DIR"
+    fi
+    ./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache $WT_OPTION" --ssh-dir ~/.ssh/ "$@"
+}
+
 alias qtcreator='QT_QPA_PLATFORM=wayland /opt/Qt/Tools/QtCreator/bin/qtcreator &'
 
 alias prepare-nfs-fgw='./scripts/deploy-image.sh -n -N /srv/nfs-fgw -r fwk-rpi -T -'

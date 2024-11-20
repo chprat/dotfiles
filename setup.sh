@@ -5,7 +5,7 @@ code_path=$(realpath "$dir_name")
 
 # install packages
 xargs sudo apt install -y <"$code_path/packages"
-if dpkg -l ubuntu-desktop; then
+if dpkg -l "ubuntu-desktop*" >/dev/null; then
     xargs sudo apt install -y <"$code_path/packages-desktop"
 fi
 

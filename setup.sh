@@ -37,7 +37,7 @@ sed -i "/grep/s/#//" "$HOME/.bashrc"
 # copy ~/.gitconfig.user
 if [ ! -f "$HOME/.gitconfig.user" ]; then
     cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"
-    echo "Please update the $HOME/.gitconfig.user configuration!"
+    echo -e "\033[0;31mPlease update the $HOME/.gitconfig.user configuration!\033[0m"
 fi
 
 # install TPM

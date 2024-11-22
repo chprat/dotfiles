@@ -146,3 +146,12 @@ fi
 if command -v zoxide &>/dev/null; then
     eval "$(zoxide init --cmd cd bash)"
 fi
+
+# enable bat(cat)
+if command -v batcat &>/dev/null; then
+    BAT_STYLE="auto"
+    export BAT_STYLE
+    BAT_THEME="Solarized (light)"
+    export BAT_THEME
+    alias cat="batcat"
+fi

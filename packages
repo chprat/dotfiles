@@ -10,6 +10,7 @@ python3-venv
 rclone
 ripgrep
 rsync
+tealdeer
 tmux
 vim
 zoxide

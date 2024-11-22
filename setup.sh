@@ -79,3 +79,4 @@ for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua; do
 done
 link_file "nvim" "$HOME/.config/nvim"
 link_file "starship.toml" "$HOME/.config/starship.toml"
+link_file "tealdeer" "$HOME/.config/tealdeer"

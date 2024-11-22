@@ -108,6 +108,7 @@ alias g='git'
 alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
+alias glo='git log --oneline --decorate'
 alias gst='git status'
 
 if command -v eza &>/dev/null; then

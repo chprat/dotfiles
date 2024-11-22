@@ -1,4 +1,3 @@
-autojump
 curl
 direnv
 fd-find
@@ -13,3 +12,4 @@ ripgrep
 rsync
 tmux
 vim
+zoxide

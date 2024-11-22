@@ -83,10 +83,6 @@ function exIPK() {
     done
 }
 
-# enable autojump
-# shellcheck source=/dev/null
-[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh || printf "\nCould not find autojump integration"
-
 # enable fzf
 if command -v fzf &>/dev/null; then
     eval "$(fzf --bash)"
@@ -144,4 +140,9 @@ fi
 # enable direnv
 if command -v direnv &>/dev/null; then
     eval "$(direnv hook bash)"
+fi
+
+# enable zoxide
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init --cmd cd bash)"
 fi

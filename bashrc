@@ -47,13 +47,6 @@ function backup() {
     rclone sync "$HOME/data/" "nc:staging/$HOSTNAME/"
 }
 
-# Yocto directory exports FAG
-function fagexports() {
-    export DL_DIR=/var/yocto/fag/kirkstone-downloads-cache
-    export SSTATE_DIR=/var/yocto/fag/kirkstone-sstate-cache
-    export CCACHE_DIR=/var/yocto/fag/ccache
-}
-
 # start webex in X11 session
 function webex() {
     XDG_SESSION_TYPE=x11 /opt/Webex/bin/CiscoCollabHost

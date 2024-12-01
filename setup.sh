@@ -57,7 +57,7 @@ if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
 fi
 
 USRSHELL=$(grep "^$USER:" /etc/passwd | cut -f7 -d':' | rev | cut -f1 -d'/' | rev)
-if [ "$USRSHELL" != "zsh" ]; then
+if [ -n "$USRSHELL" ] && [ "$USRSHELL" != "zsh" ]; then
     sudo chsh -s "$(which zsh)" "$USER"
     echo -e "\033[0;31mZSH will be enabled after rebooting.\033[0m"
 fi

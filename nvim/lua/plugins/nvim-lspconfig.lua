@@ -21,6 +21,7 @@ return {
                     "flake8",
                     "isort",
                     "luacheck",
+                    "rust-analyzer",
                 },
             })
         end,
@@ -98,6 +99,7 @@ return {
                     },
                 },
             })
+
             lspconfig.pylsp.setup({
                 settings = {
                     pylsp = {
@@ -105,6 +107,19 @@ return {
                             pycodestyle = {
                                 maxLineLength = 100,
                             },
+                        },
+                    },
+                },
+            })
+
+            lspconfig.rust_analyzer.setup({
+                settings = {
+                    ["rust-analyzer"] = {
+                        check = {
+                            command = "clippy",
+                        },
+                        diagnostics = {
+                            enable = true,
                         },
                     },
                 },

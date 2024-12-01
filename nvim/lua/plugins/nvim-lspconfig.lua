@@ -18,10 +18,13 @@ return {
             })
             mason_tool_installer.setup({
                 ensure_installed = {
+                    "bashls",
                     "flake8",
                     "isort",
                     "luacheck",
                     "rust-analyzer",
+                    "shellcheck",
+                    "shfmt",
                 },
             })
         end,
@@ -88,6 +91,8 @@ return {
             end
 
             local capabilities = cmp_nvim_lsp.default_capabilities()
+
+            lspconfig.bashls.setup({})
 
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,

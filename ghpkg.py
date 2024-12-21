@@ -176,7 +176,7 @@ def extract_program(file_name, package_name):
     elif package_name == "yazi":
         base_file_name = file_name.replace(".zip", "")
         ar_path = f"{base_file_name}/{package_name}"
-        command = f"unzip -j {file_name} {ar_path} -d {install_path}"
+        command = f"unzip -o -j {file_name} {ar_path} -d {install_path}"
         base_cmd = command.split()
     else:
         base_cmd.append("--strip-components=1")

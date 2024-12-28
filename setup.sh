@@ -63,6 +63,15 @@ if [ -n "$USRSHELL" ] && [ "$USRSHELL" != "zsh" ]; then
     echo -e "\033[0;31mZSH will be enabled after rebooting.\033[0m"
 fi
 
+# install JetBrainsMono Nerd Font
+[ ! -d "$HOME/.local/share/fonts" ] && mkdir -p "$HOME/.local/share/fonts"
+if [ ! -f "$HOME/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf" ]; then
+    curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip
+    unzip -o -j JetBrainsMono.zip "*.ttf" -d "$HOME/.local/share/fonts"
+    rm JetBrainsMono.zip
+    fc-cache -f
+fi
+
 # install github packages
 ./ghpkg.py download
 

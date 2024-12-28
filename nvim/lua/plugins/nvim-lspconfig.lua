@@ -12,6 +12,7 @@ return {
             mason.setup({})
             mason_lspconfig.setup({
                 ensure_installed = {
+                    "clangd",
                     "lua_ls",
                     "pylsp",
                 },
@@ -93,6 +94,8 @@ return {
             local capabilities = cmp_nvim_lsp.default_capabilities()
 
             lspconfig.bashls.setup({})
+
+            lspconfig.clangd.setup({})
 
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,

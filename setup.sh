@@ -56,6 +56,7 @@ if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
     sudo apt update
 fi
 
+# switch user shell to zsh
 USRSHELL=$(grep "^$USER:" /etc/passwd | cut -f7 -d':' | rev | cut -f1 -d'/' | rev)
 if [ -n "$USRSHELL" ] && [ "$USRSHELL" != "zsh" ]; then
     sudo chsh -s "$(which zsh)" "$USER"

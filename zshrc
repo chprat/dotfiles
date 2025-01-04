@@ -165,7 +165,7 @@ fi
 # backup files with rclone
 function backup() {
     cp "$HOME/.ssh/config" "$HOME/data/ssh-config"
-    rclone sync "$HOME/data/" "nc:staging/$HOSTNAME/"
+    rclone sync "$HOME/data/" "nc:staging/$HOST/"
 }
 
 # cd .. multiple times

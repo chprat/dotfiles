@@ -17,3 +17,8 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>sm", "<C-w>_", { desc = "Maximize current split" })
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
+-- LUA execution/source
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Source current LUA file" })
+vim.keymap.set("n", "<space>x", ":.lua<CR>", { desc = "Execute current LUA line" })
+vim.keymap.set("v", "<space>x", ":lua<CR>", { desc = "Execute current LUA highligh" })

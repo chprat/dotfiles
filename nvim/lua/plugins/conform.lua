@@ -11,7 +11,7 @@ return {
                 },
                 formatters_by_ft = {
                     lua = { "stylua" },
-                    python = { "isort", "flake8" },
+                    python = { "isort", "black" },
                 },
             })
             vim.keymap.set({ "n", "v" }, "<leader>mp", function()

@@ -22,3 +22,14 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Source current LUA file" })
 vim.keymap.set("n", "<space>x", ":.lua<CR>", { desc = "Execute current LUA line" })
 vim.keymap.set("v", "<space>x", ":lua<CR>", { desc = "Execute current LUA highligh" })
+
+-- terminal
+keymap.set("n", "<leader>ts", function()
+    vim.cmd.new()
+    vim.cmd.term()
+    vim.api.nvim_win_set_height(0, 15)
+    vim.opt.spell = false
+    vim.cmd.startinsert()
+end, { desc = "Open terminal" })
+keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Close terminal" })
+keymap.set("t", "jj", "<c-\\><c-n>", { desc = "Close terminal" })

@@ -37,6 +37,9 @@ return {
             keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Telescope live grep for string under cursor" })
             keymap.set("n", "<leader>fl", builtin.lsp_document_symbols, { desc = "Telescope lsp symbols" })
             keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+            keymap.set("n", "<leader>fa", function()
+                builtin.find_files({ hidden = true, no_ignore = true, no_ignore_parent = true })
+            end, { desc = "Telescope find all files" })
         end,
     },
     {

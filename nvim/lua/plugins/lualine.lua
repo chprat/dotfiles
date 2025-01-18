@@ -5,7 +5,7 @@ return {
         local lualine = require("lualine")
         local lazy_status = require("lazy.status")
         lualine.setup({
-            extensions = { "nvim-tree", "lazy" },
+            extensions = { "lazy" },
             sections = {
                 lualine_c = {
                     {

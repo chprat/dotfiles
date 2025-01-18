@@ -17,9 +17,11 @@ sudo apt update && sudo apt install -y git
 
 ### Running the linters
 
-To run the linters of this repository, *docker* or *podman* is required. Follow
-[Install docker](#install-docker) for a guide how to install it. The linters
-then can be run with the `lint.sh` script.
+Linting is done with the [MegaLinter](https://megalinter.io/) in this
+repository. If you want to run it locally, you can use
+[act](https://github.com/nektos/act) to execute the GitHub pipeline on your
+device. *act* requires *docker*, follow [Install docker](#install-docker) for a
+guide how to install it.
 
 ## Install docker
 

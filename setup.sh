@@ -16,6 +16,7 @@ fi
 xargs sudo apt install -y <"$code_path/packages"
 if dpkg -l "ubuntu-desktop*" >/dev/null; then
     xargs sudo apt install -y <"$code_path/packages-desktop"
+    curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/leafy-moon.png -o "$HOME/Bilder/leafy-moon.png"
 fi
 
 # add user to dialout

@@ -107,7 +107,13 @@ if command -v direnv &>/dev/null; then
 fi
 
 if command -v fzf &>/dev/null; then
-    export FZF_DEFAULT_OPTS='--tmux --height 40% --reverse --border'
+    # colors are rose-pine-moon
+    export FZF_DEFAULT_OPTS='--tmux --height 40% --reverse --border
+        --color=fg:#908caa,bg:#232136,hl:#ea9a97
+        --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+        --color=border:#44415a,header:#3e8fb0,gutter:#232136
+        --color=spinner:#f6c177,info:#9ccfd8
+        --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
     export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
     export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude .git"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

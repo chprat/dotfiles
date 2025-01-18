@@ -3,6 +3,15 @@
 dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
 
+# add wezterm repository
+if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+fi
+if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo apt update
+fi
+
 # install packages
 xargs sudo apt install -y <"$code_path/packages"
 if dpkg -l "ubuntu-desktop*" >/dev/null; then
@@ -45,15 +54,6 @@ fi
 # disable dmesg access restrictions
 if [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
     echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
-fi
-
-# add wezterm repository
-if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
-    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-fi
-if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
-    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-    sudo apt update
 fi
 
 # switch user shell to zsh

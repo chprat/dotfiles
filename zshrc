@@ -212,7 +212,6 @@ function kas() {
 
 # build all kas configurations
 function kas-build-all() {
-    fagexports
     for config in *.yml; do
         echo ""
         echo "Downloading $config"

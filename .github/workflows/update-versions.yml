@@ -25,5 +25,4 @@ jobs:
           title: Update tools
           body: |
             Update the tools with the latest versions found by the version checker script.
-          assignees: chprat
           reviewers: chprat

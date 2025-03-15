@@ -2,6 +2,13 @@
 
 dir_name=$(dirname "$0")
 code_path=$(realpath "$dir_name")
+is_desktop=$(
+    if dpkg -l "ubuntu-desktop*" >/dev/null 2>&1; then
+        echo 1
+    else
+        echo 0
+    fi
+)
 
 # add wezterm repository
 if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
@@ -14,7 +21,7 @@ fi
 
 # install packages
 xargs sudo apt install -y <"$code_path/packages"
-if dpkg -l "ubuntu-desktop*" >/dev/null; then
+if [ "$is_desktop" = 1 ]; then
     xargs sudo apt install -y <"$code_path/packages-desktop"
     curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/leafy-moon.png -o "$HOME/Bilder/leafy-moon.png"
 fi

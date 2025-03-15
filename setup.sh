@@ -11,15 +11,17 @@ is_desktop=$(
 )
 
 # add wezterm repository
-if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
-    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-fi
-if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
-    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-    sudo apt update
+if [ "$is_desktop" = 1 ]; then
+    if [ ! -f "/etc/apt/keyrings/wezterm-fury.gpg" ]; then
+        curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+    fi
+    if [ ! -f "/etc/apt/sources.list.d/wezterm.list" ]; then
+        echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    fi
 fi
 
 # install packages
+sudo apt update
 xargs sudo apt install -y <"$code_path/packages"
 if [ "$is_desktop" = 1 ]; then
     xargs sudo apt install -y <"$code_path/packages-desktop"

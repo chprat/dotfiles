@@ -108,3 +108,11 @@ done
 link_file "nvim" "$HOME/.config/nvim"
 link_file "starship.toml" "$HOME/.config/starship.toml"
 link_file "tealdeer" "$HOME/.config/tealdeer"
+
+# install tmux plugins
+if [ ! -d "$HOME/.tmux/plugins/tmux" ]; then
+    tmux start-server
+    tmux new-session -d
+    "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" >/dev/null
+    tmux kill-server
+fi

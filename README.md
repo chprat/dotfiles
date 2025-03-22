@@ -6,13 +6,13 @@ Linux home directory) and some configuration hints for other services.
 ## Requirements to work with the repository
 
 *git* is required to clone the repository. The *setup.sh* script relies on
-*sudo* to gain elevated privileges. It's usually enough to add the user to the
-*sudo* or *wheel* (depends on the distribution) group and relog. The script is
-also only tested on Debian/Ubuntu based distributions.
+curl and *sudo* to gain elevated privileges. It's usually enough to add the
+user to the *sudo* or *wheel* (depends on the distribution) group and relog.
+The script is also only tested on Debian/Ubuntu based distributions.
 
 ```bash
 su -c usermod -aG sudo <username>
-sudo apt update && sudo apt install -y git
+sudo apt update && sudo apt install -y curl git
 ```
 
 ### Running the linters

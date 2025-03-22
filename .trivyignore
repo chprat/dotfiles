@@ -1,0 +1,2 @@
+# disable warning on missing Dockerfile HEALTHCHECK
+AVD-DS-0026

@@ -23,6 +23,15 @@ repository. If you want to run it locally, you can use
 device. *act* requires *docker*, follow [Install docker](#install-docker) for a
 guide how to install it.
 
+### Testing the setup
+
+The *container-test.sh* script can be used to spin up some docker containers,
+mounting the working directory into the container. This allows testing the
+*setup.sh* script in a fresh environment. Pass the *desktop* parameter to the
+script, to simulate a desktop environment. There are additional setup steps
+performed, compared to a cli environment. Follow
+[Install docker](#install-docker) for a guide how to install it.
+
 ## Install docker
 
 To install *docker* from the default repositories, execute the following

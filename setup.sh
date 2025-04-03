@@ -39,12 +39,6 @@ fi
 # create ~/.config
 [ ! -d "$HOME/.config" ] && mkdir -p "$HOME/.config"
 
-# copy ~/.gitconfig.user
-if [ ! -f "$HOME/.gitconfig.user" ]; then
-    cp "$code_path/gitconfig.user" "$HOME/.gitconfig.user"
-    echo -e "\033[0;31mPlease update the $HOME/.gitconfig.user configuration!\033[0m"
-fi
-
 # install TPM
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     mkdir -p "$HOME/.tmux/plugins/tpm"
@@ -91,13 +85,20 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-for file in gitconfig tmux.conf wezterm.lua zshrc; do
+for file in tmux.conf wezterm.lua zshrc; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done
+link_file "git" "$HOME/.config/git"
 link_file "nvim" "$HOME/.config/nvim"
 link_file "starship.toml" "$HOME/.config/starship.toml"
 link_file "tealdeer" "$HOME/.config/tealdeer"
+
+# copy config.user
+if [ ! -f "$HOME/.config/git/config.user" ]; then
+    cp "$code_path/git/config.user.example" "$HOME/.config/git/config.user"
+    echo -e "\033[0;31mPlease update the $HOME/.config/git/config.user configuration!\033[0m"
+fi
 
 # install tmux plugins
 if [ ! -d "$HOME/.tmux/plugins/tmux" ]; then

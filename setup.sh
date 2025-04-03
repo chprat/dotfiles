@@ -79,12 +79,7 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-link_file "git" "$HOME/.config/git"
-link_file "nvim" "$HOME/.config/nvim"
-link_file "starship.toml" "$HOME/.config/starship.toml"
-link_file "tealdeer" "$HOME/.config/tealdeer"
-link_file "tmux" "$HOME/.config/tmux"
-link_file "wezterm" "$HOME/.config/wezterm"
+stow .
 link_file "zshrc" "$HOME/.zshrc"
 
 # copy config.user

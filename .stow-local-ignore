@@ -1,0 +1,50 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.github
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+.*\.swp      # vim tmp file
+
+^/README.*
+^/LICENSE*
+^/COPYING
+
+\.devskim.json
+\.editorconfig
+\.flake8
+kics.config
+\.luacheckrc
+\.mega-linter.yml
+selene.toml
+\.stow-local-ignore
+\.stowrc
+\.trivyignore
+vim.toml
+
+gitconfig.user
+zshrc
+
+container-test.sh
+Dockerfile
+
+gh.pkg
+ghpkg.py
+packages
+packages-desktop
+setup.sh

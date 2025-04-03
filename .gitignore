@@ -1,3 +1,4 @@
 backup
 git/config.user
 nvim/lazy-lock.json
+tmux/plugins

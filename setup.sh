@@ -39,12 +39,6 @@ fi
 # create ~/.config
 [ ! -d "$HOME/.config" ] && mkdir -p "$HOME/.config"
 
-# install TPM
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    mkdir -p "$HOME/.tmux/plugins/tpm"
-    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-fi
-
 # disable dmesg access restrictions
 if [ "$(sysctl -n kernel.dmesg_restrict)" = "1" ]; then
     echo "kernel.dmesg_restrict = 0" | sudo tee /etc/sysctl.d/10-dmesg-access.conf
@@ -85,7 +79,7 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-for file in tmux.conf wezterm.lua zshrc; do
+for file in wezterm.lua zshrc; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done
@@ -93,6 +87,7 @@ link_file "git" "$HOME/.config/git"
 link_file "nvim" "$HOME/.config/nvim"
 link_file "starship.toml" "$HOME/.config/starship.toml"
 link_file "tealdeer" "$HOME/.config/tealdeer"
+link_file "tmux" "$HOME/.config/tmux"
 
 # copy config.user
 if [ ! -f "$HOME/.config/git/config.user" ]; then
@@ -100,10 +95,16 @@ if [ ! -f "$HOME/.config/git/config.user" ]; then
     echo -e "\033[0;31mPlease update the $HOME/.config/git/config.user configuration!\033[0m"
 fi
 
+# install TPM
+if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
+    mkdir -p "$HOME/.config/tmux/plugins/tpm"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+fi
+
 # install tmux plugins
 if [ ! -d "$HOME/.tmux/plugins/tmux" ]; then
     tmux start-server
     tmux new-session -d
-    "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh" >/dev/null
+    "$HOME/.config/tmux/plugins/tpm/scripts/install_plugins.sh" >/dev/null
     tmux kill-server
 fi

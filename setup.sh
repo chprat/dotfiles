@@ -101,7 +101,7 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-for file in minirc.dfl vimrc wezterm.lua zshrc; do
+for file in minirc.dfl vimrc zshrc; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done
@@ -110,6 +110,7 @@ link_file "nvim" "$HOME/.config/nvim"
 link_file "starship.toml" "$HOME/.config/starship.toml"
 link_file "tealdeer" "$HOME/.config/tealdeer"
 link_file "tmux" "$HOME/.config/tmux"
+link_file "wezterm" "$HOME/.config/wezterm"
 
 # install tmux plugins
 if [ ! -d "$HOME/.tmux/plugins/tmux" ]; then

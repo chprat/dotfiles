@@ -36,9 +36,6 @@ fi
 # create ~/.local/bin
 [ ! -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
 
-# create ~/.vim/plugged
-[ ! -d "$HOME/.vim/plugged" ] && mkdir -p "$HOME/.vim/plugged"
-
 # create ~/.config
 [ ! -d "$HOME/.config" ] && mkdir -p "$HOME/.config"
 
@@ -94,7 +91,7 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-for file in gitconfig minirc.dfl tmux.conf vimrc wezterm.lua zshrc; do
+for file in gitconfig minirc.dfl tmux.conf wezterm.lua zshrc; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done

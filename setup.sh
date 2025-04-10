@@ -91,7 +91,7 @@ function link_file() {
 }
 
 # create backup and link dotfiles
-for file in gitconfig minirc.dfl tmux.conf wezterm.lua zshrc; do
+for file in gitconfig tmux.conf wezterm.lua zshrc; do
     target_file=".$file"
     link_file "$file" "$HOME/$target_file"
 done

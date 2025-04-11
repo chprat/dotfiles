@@ -156,6 +156,12 @@ if command -v fzf &>/dev/null; then
     eval "$(fzf --zsh)"
 fi
 
+# enable just
+if command -v just &>/dev/null; then
+    eval "$(just --completions zsh)"
+    alias j="just"
+fi
+
 # enable starship
 if command -v starship &>/dev/null; then
     eval "$(starship init zsh)"

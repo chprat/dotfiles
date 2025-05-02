@@ -88,8 +88,6 @@ if ! command -v fd &>/dev/null; then
     alias fd='fdfind'
 fi
 
-alias qtcreator='QT_QPA_PLATFORM=wayland /opt/Qt/Tools/QtCreator/bin/qtcreator &'
-
 # Shell integrations
 
 # enable bat(cat)
@@ -241,9 +239,4 @@ function sysupgr() {
     if which snap >/dev/null; then
         sudo snap refresh
     fi
-}
-
-# start webex in X11 session
-function webex() {
-    XDG_SESSION_TYPE=x11 /opt/Webex/bin/CiscoCollabHost
 }

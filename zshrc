@@ -88,10 +88,6 @@ if ! command -v fd &>/dev/null; then
     alias fd='fdfind'
 fi
 
-alias prepare-nfs-con='./scripts/deploy-image.sh -n -N /srv/nfs-con -r fwk-rpi -T -'
-alias prepare-nfs-fgw='./scripts/deploy-image.sh -n -N /srv/nfs-fgw -r fwk-rpi -T -'
-alias prepare-nfs-mesa-mmi='./scripts/deploy-image.sh -n -N /srv/nfs-mesa-mmi -r fwk-rpi -T -'
-
 alias qtcreator='QT_QPA_PLATFORM=wayland /opt/Qt/Tools/QtCreator/bin/qtcreator &'
 
 # Shell integrations
@@ -221,31 +217,6 @@ function exRFS() {
     rm -rf rootfs
     mkdir rootfs
     tar xf "$(find build/tmp**/deploy/images/ -iname '*rootfs.tar.gz')" -C rootfs
-}
-
-# kas-container with options and git-worktree support
-function kas() {
-    if [ -f .git ]; then
-        HOST_DIR="$(pwd | rev | cut -d'/' -f2- | rev)"
-        CONTAINER_DIR=$(cut -d' ' -f2 .git | rev | cut -d'/' -f3- | rev)
-        WT_OPTION="-v $HOST_DIR:$CONTAINER_DIR"
-    fi
-    ./kas-container --runtime-args "--net host -v $CCACHE_DIR:/ccache $WT_OPTION" --ssh-dir ~/.ssh/ "$@"
-}
-
-# build all kas configurations
-function kas-build-all() {
-    for config in *.yml; do
-        echo ""
-        echo "Downloading $config"
-        [ -f "$config" ] && kas build "$config":.kas/local.yaml -- --runall=fetch || return
-    done
-    for config in *.yml; do
-        echo ""
-        echo "Building $config"
-        kas clean
-        [ -f "$config" ] && kas build "$config":.kas/local.yaml -- -k || return
-    done
 }
 
 # create folder and cd into

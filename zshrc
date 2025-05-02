@@ -118,8 +118,13 @@ if command -v fzf &>/dev/null; then
         --color=border:#44415a,header:#3e8fb0,gutter:#232136
         --color=spinner:#f6c177,info:#9ccfd8
         --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
-    export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
-    export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude .git"
+    if command -v fdfind &>/dev/null; then
+        export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
+        export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude .git"
+    elif command -v fd &>/dev/null; then
+        export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+        export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+    fi
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
     if command -v batcat &>/dev/null; then
@@ -137,6 +142,14 @@ if command -v fzf &>/dev/null; then
 
         _fzf_compgen_dir() {
             fdfind --type=d --hidden --exclude .git . "$1"
+        }
+    elif command -v fd &>/dev/null; then
+        _fzf_compgen_path() {
+            fd --hidden --exclude .git . "$1"
+        }
+
+        _fzf_compgen_dir() {
+            fd --type=d --hidden --exclude .git . "$1"
         }
     fi
 

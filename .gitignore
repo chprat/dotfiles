@@ -1,5 +1,6 @@
 backup
 git/.repo_config.json
 git/config.user
+lazygit/state.yml
 nvim/lazy-lock.json
 tmux/plugins

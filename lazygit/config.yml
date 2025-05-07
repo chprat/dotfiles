@@ -1,0 +1,7 @@
+keybinding:
+  universal:
+    scrollUpMain: <disabled>
+    scrollDownMain: <disabled>
+  commits:
+    moveDownCommit: <pgdown>
+    moveUpCommit: <pgup>

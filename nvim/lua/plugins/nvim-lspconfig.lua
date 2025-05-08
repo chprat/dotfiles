@@ -38,7 +38,6 @@ return {
             { "antosha417/nvim-lsp-file-operations", config = true },
         },
         config = function()
-            local lspconfig = require("lspconfig")
             local cmp_nvim_lsp = require("cmp_nvim_lsp")
             local keymap = vim.keymap
 
@@ -93,11 +92,11 @@ return {
 
             local capabilities = cmp_nvim_lsp.default_capabilities()
 
-            lspconfig.bashls.setup({})
+            vim.lsp.enable("bashls")
 
-            lspconfig.clangd.setup({})
+            vim.lsp.enable("clangd")
 
-            lspconfig.lua_ls.setup({
+            vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
                 settings = {
                     Lua = {
@@ -108,7 +107,7 @@ return {
                 },
             })
 
-            lspconfig.pylsp.setup({
+            vim.lsp.config("pylsp", {
                 settings = {
                     pylsp = {
                         plugins = {
@@ -120,7 +119,7 @@ return {
                 },
             })
 
-            lspconfig.rust_analyzer.setup({
+            vim.lsp.config("rust_analyzer", {
                 settings = {
                     ["rust-analyzer"] = {
                         check = {

@@ -1,7 +1,9 @@
 return {
     "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
     opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
     config = function()
         local oil = require("oil")
         local keymap = vim.keymap

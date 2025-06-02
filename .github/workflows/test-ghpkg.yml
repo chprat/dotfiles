@@ -1,0 +1,39 @@
+name: Test ghpkg
+
+on:
+  push:
+    paths:
+      - gh.pkg
+      - ghpkg.py
+  pull_request:
+    branches:
+      - main
+
+permissions: read-all
+
+jobs:
+  test-ghpkg-x86:
+    name: Test ghpkg on x86
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run script
+        run: |
+          mkdir -p ~/.local/bin
+          ./ghpkg.py download
+
+  test-ghpkg-arm:
+    name: Test ghpkg on ARM
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run script
+        run: |
+          mkdir -p ~/.local/bin
+          ./ghpkg.py download

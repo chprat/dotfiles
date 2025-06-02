@@ -188,12 +188,6 @@ def extract_program(file_name, package_name):
     if cmd_output.returncode != 0:
         sys.exit(f"Running tar returned {cmd_output.returncode}: {cmd_output.stderr}")
 
-    if package_name == "mdcat":
-        if not check_installed("mdless"):
-            less_name = get_install_path("mdless")
-            mdcat_name = get_install_path("mdcat")
-            os.symlink(mdcat_name, less_name)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="GitHub package manager")

@@ -3,6 +3,7 @@
 import argparse
 import json
 import os.path
+import platform
 import re
 import subprocess  # nosec
 import sys
@@ -49,6 +50,14 @@ def download_asset(short_url, id, file_name):
 def get_asset_info(short_url, id) -> dict[str, str]:
     """Get the id of a release asset (linux x86_64 [musl])"""
     url = f"https://api.github.com/repos/{short_url}/releases/{id}/assets"
+
+    sys_arch = platform.machine()
+    alt_sys_arch = ""
+    if sys_arch == "x86_64":
+        alt_sys_arch = "amd64"
+    elif sys_arch == "aarch64":
+        alt_sys_arch = "arm64"
+
     try:
         # URL generated from f-string, always HTTPS
         with urllib.request.urlopen(url) as page:  # nosec
@@ -59,30 +68,35 @@ def get_asset_info(short_url, id) -> dict[str, str]:
                 v for v in assets if not (v["name"].casefold().endswith("sha256"))
             ]
             linux = [v for v in assets if "linux".casefold() in v["name"].casefold()]
-            x86_64 = [v for v in linux if "x86_64".casefold() in v["name"].casefold()]
-            if len(x86_64) == 1:
-                return x86_64[0]
-            if len(x86_64) == 0:
-                x86_64 = [
-                    v for v in linux if "amd64".casefold() in v["name"].casefold()
+
+            arch = [v for v in linux if sys_arch.casefold() in v["name"].casefold()]
+            if len(arch) == 0:
+                arch = [
+                    v for v in linux if alt_sys_arch.casefold() in v["name"].casefold()
                 ]
-                if len(x86_64) == 1:
-                    return x86_64[0]
-            musl = [v for v in x86_64 if "musl".casefold() in v["name"].casefold()]
-            if len(musl) == 1:
-                return musl[0]
-            elif len(musl) > 1:
-                targz = [v for v in musl if v["name"].casefold().endswith(".tar.gz")]
-                if len(targz) == 1:
-                    return targz[0]
-            else:
-                sys.exit(f"No unique file found for {short_url} available: {x86_64}")
+            if len(arch) == 1:
+                return arch[0]
+
+            abi = [v for v in arch if "musl".casefold() in v["name"].casefold()]
+            if len(abi) == 0:
+                abi = [v for v in arch if "gnu".casefold() in v["name"].casefold()]
+            if len(abi) == 1:
+                return abi[0]
+
+            targz = [v for v in abi if v["name"].casefold().endswith(".tar.gz")]
+            if len(targz) == 1:
+                return targz[0]
+
+            eza = [v for v in targz if "libgit".casefold() not in v["name"].casefold()]
+            if len(eza) == 1:
+                return eza[0]
+
+            sys.exit(f"No unique file found for {short_url} available: {arch}")
 
     except urllib.error.HTTPError as e:
         sys.exit(f"{url} returned error {e}")
     except urllib.error.URLError as e:
         sys.exit(f"{url} returned error {e}")
-    return {"id": "", "name": ""}
 
 
 def get_release_id(short_url, version):

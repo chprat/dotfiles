@@ -13,6 +13,10 @@ if [[ -f /etc/os-release ]]; then
     if grep -qi ubuntu /etc/os-release; then
         source "$code_path/ubuntu.sh"
     fi
+else
+    if [[ $(uname -s) = "Darwin" ]]; then
+        source "$code_path/macos.sh"
+    fi
 fi
 
 # install JetBrainsMono Nerd Font

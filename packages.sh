@@ -50,3 +50,29 @@ export packages_desktop_ubuntu=(
     nextcloud-desktop
     wezterm
 )
+
+export packages_macos=(
+    act
+    autoconf
+    bat
+    direnv
+    eza
+    fd
+    fonconfig
+    fzf
+    git-delta
+    just
+    lazygit
+    neovim
+    ripgrep
+    starship
+    stow
+    tealdeer
+    tmux
+    yazi
+    zoxide
+)
+
+export packages_desktop_macos=(
+    wezterm
+)

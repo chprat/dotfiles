@@ -38,6 +38,12 @@ export packages_ubuntu=(
     zsh
 )
 
+export snaps_ubuntu_classic=(
+    cmake
+    just
+    nvim
+)
+
 export packages_desktop_ubuntu=(
     keepassxc
     meld

@@ -22,6 +22,7 @@ export packages_ubuntu=(
     direnv
     fd-find
     git
+    golang
     luarocks
     make
     mc
@@ -61,6 +62,7 @@ export packages_macos=(
     fonconfig
     fzf
     git-delta
+    golang
     just
     lazygit
     neovim

@@ -74,3 +74,8 @@ fi
 
 # install github packages
 ./ghpkg.py download
+
+# install fzf-tmux wrapper script
+curl -LO https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-tmux
+chmod +x fzf-tmux
+mv fzf-tmux "$HOME/.local/bin/"

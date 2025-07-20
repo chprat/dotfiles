@@ -30,6 +30,7 @@ if [ "$is_desktop" = 1 ]; then
     fi
 fi
 
+# download wallpaper
 if [ "$is_desktop" = 1 ]; then
     picture_folder="$HOME/Bilder"
     if [ ! -d "$picture_folder" ]; then
@@ -43,6 +44,7 @@ if [ "$is_desktop" = 1 ]; then
     fi
 fi
 
+# link a file and backup the original
 function link_file() {
     file="$1"
     dest="$2"
@@ -60,7 +62,7 @@ function link_file() {
 stow .
 link_file "zshrc" "$HOME/.zshrc"
 
-# copy config.user
+# copy git config.user
 if [ ! -f "$HOME/.config/git/config.user" ]; then
     cp "$code_path/git/config.user.example" "$HOME/.config/git/config.user"
     echo -e "\033[0;31mPlease update the $HOME/.config/git/config.user configuration!\033[0m"

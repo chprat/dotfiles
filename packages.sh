@@ -59,7 +59,7 @@ export packages_macos=(
     direnv
     eza
     fd
-    fonconfig
+    fontconfig
     fzf
     git-delta
     golang

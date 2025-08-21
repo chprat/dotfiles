@@ -37,7 +37,6 @@ selene.toml
 \.trivyignore
 vim.toml
 
-gitconfig.user
 zshrc
 
 container-test.sh
@@ -45,6 +44,7 @@ Dockerfile
 
 gh.pkg
 ghpkg.py
-packages
-packages-desktop
+macos.sh
+packages.sh
 setup.sh
+ubuntu.sh

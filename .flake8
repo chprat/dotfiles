@@ -1,2 +1,3 @@
 [flake8]
+exclude = fish/functions/__bass.py
 max-line-length = 100

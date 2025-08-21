@@ -16,3 +16,6 @@ indent_size = 2
 
 [**/*.md]
 indent_size = 2
+
+[fish/functions/{__bass.py,bass.fish}]
+indent_size = unset

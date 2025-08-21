@@ -6,3 +6,7 @@ DISABLE:
 
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
+
+PYTHON_BLACK_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)
+PYTHON_ISORT_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)
+PYTHON_RUFF_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)

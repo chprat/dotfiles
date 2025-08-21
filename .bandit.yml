@@ -1,0 +1,1 @@
+exclude_dirs: ["fish/functions/__bass.py"]

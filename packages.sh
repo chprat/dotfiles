@@ -25,7 +25,6 @@ export packages_ubuntu=(
     golang
     luarocks
     make
-    mc
     npm
     python3-venv
     rclone

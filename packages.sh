@@ -53,7 +53,6 @@ export packages_desktop_ubuntu=(
 )
 
 export packages_macos=(
-    act
     autoconf
     bat
     direnv

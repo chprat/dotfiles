@@ -1,0 +1,1 @@
+../corals/pure-fish/pure/functions/fish_prompt.fish

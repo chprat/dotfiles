@@ -46,6 +46,14 @@ The included version is usually a little dated and there a lot of instructions
 can be found online to install a version from
 [docker.com](https://www.docker.com/).
 
+## Kanata
+
+[Kanata](https://github.com/jtroo/kanata) is a tool that can be used to set up
+[Home Row Mods](https://precondition.github.io/home-row-mods). It's not
+automatically set up, see
+[this](https://github.com/jtroo/kanata/discussions/1537) GitHub discussion for
+details on how to do so on MacOS.
+
 ## Gnome shell extensions
 
 These extensions for gnome shell are helpful:

@@ -48,3 +48,5 @@ macos.sh
 packages.sh
 setup.sh
 ubuntu.sh
+
+kanata.*

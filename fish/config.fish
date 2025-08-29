@@ -10,3 +10,7 @@ if string match -q Darwin $(uname)
 else
     fish_add_path --path "$HOME"/.local/bin
 end
+
+if type -q zoxide
+    zoxide init --cmd cd fish | source
+end

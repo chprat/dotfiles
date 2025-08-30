@@ -1,5 +1,6 @@
 if status is-interactive
     set -g fish_greeting
+    fzf_configure_bindings --directory=\e\ct
 end
 
 if string match -q Darwin $(uname)

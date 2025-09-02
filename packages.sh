@@ -22,7 +22,6 @@ export packages_ubuntu=(
     direnv
     fd-find
     git
-    golang
     luarocks
     make
     npm
@@ -61,7 +60,6 @@ export packages_macos=(
     fontconfig
     fzf
     git-delta
-    golang
     gnu-sed
     just
     lazygit

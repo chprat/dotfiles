@@ -63,6 +63,7 @@ export packages_macos=(
     gnu-sed
     just
     lazygit
+    luarocks
     neovim
     ripgrep
     starship

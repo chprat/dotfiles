@@ -62,6 +62,7 @@ export packages_macos=(
     fzf
     git-delta
     golang
+    gnu-sed
     just
     lazygit
     neovim

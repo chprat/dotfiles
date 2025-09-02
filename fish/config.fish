@@ -7,4 +7,6 @@ if string match -q Darwin $(uname)
     set -x HOMEBREW_NO_ANALYTICS 1
     fish_add_path --path /opt/homebrew/bin/
     fish_add_path --path /opt/homebrew/opt/gnu-sed/libexec/gnubin
+else
+    fish_add_path --path "$HOME"/.local/bin
 end

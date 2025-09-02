@@ -11,6 +11,10 @@ else
     fish_add_path --path "$HOME"/.local/bin
 end
 
+if type -q fzf
+    fzf --fish | source
+end
+
 if type -q zoxide
     zoxide init --cmd cd fish | source
 end

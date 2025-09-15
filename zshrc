@@ -78,6 +78,11 @@ export EDITOR
 PATH="$PATH":"$HOME"/.local/bin
 export PATH
 
+if command -v rg &>/dev/null; then
+    RIPGREP_CONFIG_PATH="$HOME"/.config/ripgreprc
+    export RIPGREP_CONFIG_PATH
+fi
+
 # Aliases
 if command -v eza &>/dev/null; then
     alias ls='eza --icons=auto --group-directories-first'

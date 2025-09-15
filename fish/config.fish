@@ -1,6 +1,7 @@
 if status is-interactive
     set -g fish_greeting
     fzf_configure_bindings --directory=\e\ct
+    set -gx EDITOR nvim
     set -gx RIPGREP_CONFIG_PATH "$HOME"/.config/ripgreprc
 end
 

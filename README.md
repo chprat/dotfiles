@@ -52,7 +52,9 @@ can be found online to install a version from
 [Home Row Mods](https://precondition.github.io/home-row-mods). It's not
 automatically set up, see
 [this](https://github.com/jtroo/kanata/discussions/1537) GitHub discussion for
-details on how to do so on MacOS.
+details on how to do so on MacOS, or
+[these](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md)
+instructions for Linux.
 
 ## Gnome shell extensions
 

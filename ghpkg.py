@@ -91,6 +91,10 @@ def get_asset_info(short_url, id) -> dict[str, str]:
             if len(eza) == 1:
                 return eza[0]
 
+            kanata = [v for v in assets if v["name"].casefold() == "kanata"]
+            if len(kanata) == 1:
+                return kanata[0]
+
             sys.exit(f"No unique file found for {short_url} available: {arch}")
 
     except urllib.error.HTTPError as e:
@@ -187,6 +191,14 @@ def extract_program(file_name, package_name):
         ar_path = f"{base_file_name}/{package_name}"
         command = f"unzip -q -o -j {file_name} {ar_path} -d {install_path}"
         base_cmd = command.split()
+    elif package_name == "kanata":
+        base_cmd = f"chmod +x {file_name}".split()
+        cmd_output = subprocess.run(base_cmd)  # nosec
+        if cmd_output.returncode != 0:
+            sys.exit(
+                f"Running cmd returned {cmd_output.returncode}: {cmd_output.stderr}"
+            )
+        base_cmd = f"cp {file_name} {install_path}".split()
     else:
         base_cmd.append("--strip-components=1")
         base_file_name = file_name.replace(".tar.gz", "")

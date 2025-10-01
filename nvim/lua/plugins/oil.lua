@@ -3,7 +3,7 @@ return {
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
     config = function()
         local oil = require("oil")
         local keymap = vim.keymap

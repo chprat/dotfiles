@@ -83,37 +83,39 @@ if [ ! -f "$HOME/.local/bin/fzf-tmux" ]; then
 fi
 
 # set up kanata
-if ! grep -q ^input /etc/group; then
-    sudo groupadd input
-fi
+if [ "$is_desktop" = 1 ]; then
+    if ! grep -q ^input /etc/group; then
+        sudo groupadd input
+    fi
 
-if ! grep -q ^uinput /etc/group; then
-    sudo groupadd uinput
-fi
+    if ! grep -q ^uinput /etc/group; then
+        sudo groupadd uinput
+    fi
 
-if ! id -nGz "$USER" | grep -qzxF input; then
-    sudo usermod -aG input "$USER"
-fi
+    if ! id -nGz "$USER" | grep -qzxF input; then
+        sudo usermod -aG input "$USER"
+    fi
 
-if ! id -nGz "$USER" | grep -qzxF uinput; then
-    sudo usermod -aG uinput "$USER"
-fi
+    if ! id -nGz "$USER" | grep -qzxF uinput; then
+        sudo usermod -aG uinput "$USER"
+    fi
 
-if [ ! -f /etc/udev/rules.d/99-input.rules ]; then
-    echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee /etc/udev/rules.d/99-input.rules
-    sudo udevadm control --reload-rules
-    sudo udevadm trigger
-fi
+    if [ ! -f /etc/udev/rules.d/99-input.rules ]; then
+        echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee /etc/udev/rules.d/99-input.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger
+    fi
 
-if [ ! -f /etc/modules-load.d/kanata.conf ]; then
-    echo 'uinput' | sudo tee /etc/modules-load.d/kanata.conf
-fi
+    if [ ! -f /etc/modules-load.d/kanata.conf ]; then
+        echo 'uinput' | sudo tee /etc/modules-load.d/kanata.conf
+    fi
 
-if [ ! -f "$HOME"/.config/systemd/user/kanata.service ]; then
-    mkdir -p "$HOME"/.config/systemd/user/
-    cp kanata.service.in "$HOME"/.config/systemd/user/kanata.service
-    sed -i s,@@HOME@@,"$HOME",g "$HOME"/.config/systemd/user/kanata.service
-    systemctl --user daemon-reload
-    systemctl --user enable kanata.service
-    systemctl --user start kanata.service
+    if [ ! -f "$HOME"/.config/systemd/user/kanata.service ]; then
+        mkdir -p "$HOME"/.config/systemd/user/
+        cp kanata.service.in "$HOME"/.config/systemd/user/kanata.service
+        sed -i s,@@HOME@@,"$HOME",g "$HOME"/.config/systemd/user/kanata.service
+        systemctl --user daemon-reload
+        systemctl --user enable kanata.service
+        systemctl --user start kanata.service
+    fi
 fi

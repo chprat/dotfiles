@@ -25,6 +25,7 @@ _darcs
 ^/LICENSE*
 ^/COPYING
 
+backup
 \.bandit.yml
 \.devskim.json
 \.editorconfig

@@ -1,0 +1,6 @@
+Package: lazygit
+Version: {{version}}
+Architecture: {{architecture}}
+Maintainer: Christoph Prater
+Homepage: https://github.com/jesseduffield/lazygit
+Description: simple terminal UI for git commands

@@ -1,0 +1,6 @@
+Package: just
+Version: {{version}}
+Architecture: {{architecture}}
+Maintainer: Christoph Prater
+Homepage: https://github.com/casey/just
+Description: just a command runner

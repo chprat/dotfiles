@@ -1,0 +1,36 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.github
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+.*\.swp      # vim tmp file
+
+^/README.*
+^/LICENSE*
+^/COPYING
+
+\.stow-local-ignore
+\.stowrc
+
+kanata.kbd
+kanata.service.in
+tools
+
+setup.sh
+setup-desktop.sh

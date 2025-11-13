@@ -1,16 +1,10 @@
 APPLY_FIXES: none
 
 DISABLE:
-  - SPELL
-  - COPYPASTE
+    - SPELL
+    - COPYPASTE
 
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 
 BASH_EXEC_FILTER_REGEX_EXCLUDE: (macos\.sh|packages\.sh|ubuntu\.sh)
-
-EDITORCONFIG_EDITORCONFIG_CHECKER_FILTER_REGEX_EXCLUDE: (fish_prompt\.fish)
-
-PYTHON_BLACK_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)
-PYTHON_ISORT_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)
-PYTHON_RUFF_FILTER_REGEX_EXCLUDE: (fish\/functions\/__bass\.py)

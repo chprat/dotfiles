@@ -56,7 +56,6 @@ export packages_macos=(
     direnv
     eza
     fd
-    fish
     fontconfig
     fzf
     git-delta

@@ -68,6 +68,8 @@ def get_asset_info(short_url, id) -> dict[str, str]:
                 v for v in assets if not (v["name"].casefold().endswith("sha256"))
             ]
             linux = [v for v in assets if "linux".casefold() in v["name"].casefold()]
+            if len(linux) == 1:
+                return linux[0]
 
             arch = [v for v in linux if sys_arch.casefold() in v["name"].casefold()]
             if len(arch) == 0:
@@ -90,10 +92,6 @@ def get_asset_info(short_url, id) -> dict[str, str]:
             eza = [v for v in targz if "libgit".casefold() not in v["name"].casefold()]
             if len(eza) == 1:
                 return eza[0]
-
-            kanata = [v for v in assets if v["name"].casefold() == "kanata"]
-            if len(kanata) == 1:
-                return kanata[0]
 
             sys.exit(f"No unique file found for {short_url} available: {arch}")
 
@@ -181,6 +179,7 @@ def get_latest_release_tag(short_url):
 def extract_program(file_name, package_name):
     install_path = os.path.expanduser("~/.local/bin/")
     base_cmd = f"tar xf {file_name} -C {install_path}".split()
+    post_cmd = []
 
     if package_name == "lazygit" or package_name == "fzf" or package_name == "starship":
         base_cmd.append(f"{package_name}")
@@ -192,13 +191,12 @@ def extract_program(file_name, package_name):
         command = f"unzip -q -o -j {file_name} {ar_path} -d {install_path}"
         base_cmd = command.split()
     elif package_name == "kanata":
-        base_cmd = f"chmod +x {file_name}".split()
-        cmd_output = subprocess.run(base_cmd)  # nosec
-        if cmd_output.returncode != 0:
-            sys.exit(
-                f"Running cmd returned {cmd_output.returncode}: {cmd_output.stderr}"
-            )
-        base_cmd = f"cp {file_name} {install_path}".split()
+        base_file_name = file_name.replace(".zip", "")
+        ar_path = f"{package_name}_linux_x64"
+        command = f"unzip -q -o -j {file_name} {ar_path} -d {install_path}"
+        base_cmd = command.split()
+        rename = f"mv {install_path}{ar_path} {install_path}{package_name}"
+        post_cmd = rename.split()
     else:
         base_cmd.append("--strip-components=1")
         base_file_name = file_name.replace(".tar.gz", "")
@@ -208,6 +206,14 @@ def extract_program(file_name, package_name):
     cmd_output = subprocess.run(base_cmd)  # nosec
     if cmd_output.returncode != 0:
         sys.exit(f"Running tar returned {cmd_output.returncode}: {cmd_output.stderr}")
+
+    if post_cmd:
+        # External input for the command comes from this script
+        cmd_output = subprocess.run(post_cmd)  # nosec
+        if cmd_output.returncode != 0:
+            sys.exit(
+                f"Running tar returned {cmd_output.returncode}: {cmd_output.stderr}"
+            )
 
 
 if __name__ == "__main__":

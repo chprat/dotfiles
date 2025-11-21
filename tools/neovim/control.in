@@ -1,0 +1,6 @@
+Package: neovim
+Version: {{version}}
+Architecture: {{architecture}}
+Maintainer: Christoph Prater
+Homepage: https://neovim.io/
+Description: heavily refactored vim fork

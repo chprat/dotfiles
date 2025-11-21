@@ -36,6 +36,13 @@ export packages_ubuntu=(
     zoxide
     zsh
 )
+# build-essential
+# cmake
+# eza
+# fzf
+# git-delta
+# podman
+# vim
 
 export snaps_ubuntu_classic=(
     cmake

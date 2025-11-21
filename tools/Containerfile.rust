@@ -1,0 +1,21 @@
+FROM ubuntu:24.04 AS rust-builder
+
+# hadolint ignore=DL3008
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    build-essential \
+    ca-certificates \
+    curl \
+    gcc \
+    git \
+    make \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+FROM rust-builder
+
+COPY build.sh /
+COPY control.in /

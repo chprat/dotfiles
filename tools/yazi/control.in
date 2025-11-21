@@ -1,0 +1,6 @@
+Package: yazi
+Version: {{version}}
+Architecture: {{architecture}}
+Maintainer: Christoph Prater
+Homepage: https://github.com/sxyazi/yazi
+Description: blazing fast terminal file manager

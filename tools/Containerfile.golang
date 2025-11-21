@@ -1,0 +1,15 @@
+FROM ubuntu:24.04 AS go-builder
+
+# hadolint ignore=DL3008
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    ca-certificates \
+    git \
+    golang \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists
+
+FROM go-builder
+
+COPY build.sh /
+COPY control.in /

@@ -39,6 +39,9 @@ export packages_ubuntu=(
     zoxide
     zsh
 )
+# build-essential
+# podman
+# vim
 
 export snaps_ubuntu_classic=(
     just

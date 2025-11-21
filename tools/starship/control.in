@@ -1,0 +1,6 @@
+Package: starship
+Version: {{version}}
+Architecture: {{architecture}}
+Maintainer: Christoph Prater
+Homepage: https://starship.rs
+Description: The minimal, blazing-fast, and infinitely customizable prompt for any shell!

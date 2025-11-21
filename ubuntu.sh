@@ -30,6 +30,7 @@ is_desktop=$(
 )
 
 export font_dir="$HOME/.local/share/fonts"
+export wallpaper_dir="$HOME/.local/share/backgrounds"
 
 # add wezterm repository
 if [ "$is_desktop" = 1 ]; then

@@ -32,15 +32,9 @@ fi
 
 # download wallpaper
 if [ "$is_desktop" = 1 ]; then
-    picture_folder="$HOME/Bilder"
-    if [ ! -d "$picture_folder" ]; then
-        picture_folder="$HOME/Pictures"
-    fi
-    if [ ! -d "$picture_folder" ]; then
-        picture_folder="$HOME"
-    fi
-    if [ ! -f "$picture_folder/leafy-moon.png" ]; then
-        curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/leafy-moon.png -o "$picture_folder/leafy-moon.png"
+    [ ! -d "$wallpaper_dir" ] && mkdir -p "$wallpaper_dir"
+    if [ ! -f "$wallpaper_dir/leafy-moon.png" ]; then
+        curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/leafy-moon.png -o "$wallpaper_dir/leafy-moon.png"
     fi
 fi
 

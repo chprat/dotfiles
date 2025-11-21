@@ -23,6 +23,7 @@ source "$code_path/packages.sh"
 
 export is_desktop=1
 export font_dir="$HOME/Library/Fonts"
+export wallpaper_dir="$HOME/.local/share/backgrounds"
 
 if ! command -v brew &>/dev/null; then
     sudo ls &>/dev/null

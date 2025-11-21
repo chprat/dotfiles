@@ -119,3 +119,19 @@ if [ "$is_desktop" = 1 ]; then
         systemctl --user start kanata.service
     fi
 fi
+
+# Gnome customization
+if [ "$is_desktop" = 1 ]; then
+    gsettings set org.gnome.desktop.background picture-uri "file://${wallpaper_dir}/leafy-moon.png"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file://${wallpaper_dir}/leafy-moon.png"
+    gsettings set org.gnome.nautilus.list-view default-zoom-level "small"
+    gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
+    gsettings set org.gnome.shell disabled-extensions "['tiling-assistant@ubuntu.com']"
+    gsettings set org.gnome.shell favorite-apps "['firefox_firefox.desktop', 'org.wezfurlong.wezterm.desktop']"
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM"
+    gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+    gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+    gsettings set org.gnome.shell.extensions.ding show-home false
+fi

@@ -112,8 +112,7 @@ if [ "$is_desktop" = 1 ]; then
 
     if [ ! -f "$HOME"/.config/systemd/user/kanata.service ]; then
         mkdir -p "$HOME"/.config/systemd/user/
-        cp kanata.service.in "$HOME"/.config/systemd/user/kanata.service
-        sed -i s,@@HOME@@,"$HOME",g "$HOME"/.config/systemd/user/kanata.service
+        sed s,@@HOME@@,"$HOME",g kanata.service.in >"$HOME"/.config/systemd/user/kanata.service
         systemctl --user daemon-reload
         systemctl --user enable kanata.service
         systemctl --user start kanata.service

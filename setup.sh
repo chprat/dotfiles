@@ -23,9 +23,10 @@ fi
 if [ "$is_desktop" = 1 ]; then
     [ ! -d "$font_dir" ] && mkdir -p "$font_dir"
     if [ ! -f "$font_dir/JetBrainsMonoNerdFontMono-Regular.ttf" ]; then
-        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip
-        unzip -o -j JetBrainsMono.zip "*.ttf" -d "$font_dir"
-        rm JetBrainsMono.zip
+        echo "Downloading Nerd Font"
+        curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip -o /tmp/JetBrainsMono.zip
+        unzip -oqj /tmp/JetBrainsMono.zip "*.ttf" -d "$font_dir"
+        rm /tmp/JetBrainsMono.zip
         fc-cache -f
     fi
 fi

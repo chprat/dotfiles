@@ -84,19 +84,19 @@ fi
 
 # set up kanata
 if [ "$is_desktop" = 1 ]; then
-    if ! grep -q ^input /etc/group; then
+    if ! getent group input >/dev/null 2>&1; then
         sudo groupadd input
     fi
 
-    if ! grep -q ^uinput /etc/group; then
+    if ! getent group uinput >/dev/null 2>&1; then
         sudo groupadd uinput
     fi
 
-    if ! id -nGz "$USER" | grep -qzxF input; then
+    if ! groups | grep -q input; then
         sudo usermod -aG input "$USER"
     fi
 
-    if ! id -nGz "$USER" | grep -qzxF uinput; then
+    if ! groups | grep -q uinput; then
         sudo usermod -aG uinput "$USER"
     fi
 

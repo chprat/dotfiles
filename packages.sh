@@ -49,6 +49,7 @@ export packages_desktop_ubuntu=(
     meld
     nextcloud-desktop
     wezterm
+    wl-clipboard
 )
 
 export gnome_extensions=(

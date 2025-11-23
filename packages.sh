@@ -18,6 +18,7 @@ fi
 
 export packages_ubuntu=(
     bat
+    cmake
     curl
     direnv
     eza
@@ -40,7 +41,6 @@ export packages_ubuntu=(
 )
 
 export snaps_ubuntu_classic=(
-    cmake
     just
     nvim
 )

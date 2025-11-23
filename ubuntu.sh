@@ -124,6 +124,7 @@ fi
 if [ "$is_desktop" = 1 ]; then
     gsettings set org.gnome.desktop.background picture-uri "file://${wallpaper_dir}/leafy-moon.png"
     gsettings set org.gnome.desktop.background picture-uri-dark "file://${wallpaper_dir}/leafy-moon.png"
+    gsettings set org.gnome.desktop.sound event-sounds false
     gsettings set org.gnome.nautilus.list-view default-zoom-level "small"
     gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
     gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"

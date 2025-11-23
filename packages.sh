@@ -22,6 +22,7 @@ export packages_ubuntu=(
     direnv
     fd-find
     git
+    git-delta
     luarocks
     make
     npm

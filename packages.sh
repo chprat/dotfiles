@@ -44,10 +44,16 @@ export snaps_ubuntu_classic=(
 )
 
 export packages_desktop_ubuntu=(
+    gnome-shell-extensions
     keepassxc
     meld
     nextcloud-desktop
     wezterm
+)
+
+export gnome_extensions=(
+    caffeine@patapon.info
+    Resource_Monitor@Ory0n
 )
 
 export packages_macos=(

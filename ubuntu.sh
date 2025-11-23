@@ -136,3 +136,30 @@ if [ "$is_desktop" = 1 ]; then
     gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
     gsettings set org.gnome.shell.extensions.ding show-home false
 fi
+
+# Gnome extensions
+if [ "$is_desktop" = 1 ]; then
+    python3 -m venv --upgrade-deps .venv >/dev/null
+    .venv/bin/python3 -m pip install gnome-extensions-cli >/dev/null
+
+    for ext in "${gnome_extensions[@]}"; do
+        if ! .venv/bin/gext list | grep "$ext" &>/dev/null; then
+            echo "Installing extension: $ext"
+            .venv/bin/gext install "$ext" >/dev/null
+            if [[ $ext =~ "caffeine" ]]; then
+                if [ ! -f "$HOME/.local/share/gnome-shell/extensions/caffeine@patapon.info/schemas/gschemas.compiled" ]; then
+                    glib-compile-schemas "$HOME/.local/share/gnome-shell/extensions/caffeine@patapon.info/schemas/"
+                fi
+            fi
+        fi
+    done
+
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor diskspacestatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor diskstatsstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor netethstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor netwlanstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor ramunit "perc"
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor thermalcputemperaturestatus true
+
+    rm -r .venv
+fi

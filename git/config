@@ -25,6 +25,7 @@
 [delta]
     navigate = true
     side-by-side = true
+    syntax-theme = Coldark-Dark
 [merge]
     conflictstyle = diff3
 [diff]

@@ -20,6 +20,7 @@ export packages_ubuntu=(
     bat
     curl
     direnv
+    eza
     fd-find
     git
     git-delta

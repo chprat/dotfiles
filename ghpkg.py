@@ -89,10 +89,6 @@ def get_asset_info(short_url, id) -> dict[str, str]:
             if len(targz) == 1:
                 return targz[0]
 
-            eza = [v for v in targz if "libgit".casefold() not in v["name"].casefold()]
-            if len(eza) == 1:
-                return eza[0]
-
             sys.exit(f"No unique file found for {short_url} available: {arch}")
 
     except urllib.error.HTTPError as e:
@@ -183,8 +179,6 @@ def extract_program(file_name, package_name):
 
     if package_name == "lazygit" or package_name == "fzf" or package_name == "starship":
         base_cmd.append(f"{package_name}")
-    elif package_name == "eza":
-        base_cmd.append(f"./{package_name}")
     elif package_name == "yazi":
         base_file_name = file_name.replace(".zip", "")
         ar_path = f"{base_file_name}/{package_name}"

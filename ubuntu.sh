@@ -122,6 +122,11 @@ fi
 
 # Gnome customization
 if [ "$is_desktop" = 1 ]; then
+    CHROME_DESKTOP=""
+    if [ -f /opt/google/chrome/chrome ]; then
+        CHROME_DESKTOP="'google-chrome.desktop',"
+    fi
+    FAV_APPS="['firefox_firefox.desktop', $CHROME_DESKTOP 'org.wezfurlong.wezterm.desktop']"
     gsettings set org.gnome.desktop.background picture-uri "file://${wallpaper_dir}/leafy-moon.png"
     gsettings set org.gnome.desktop.background picture-uri-dark "file://${wallpaper_dir}/leafy-moon.png"
     gsettings set org.gnome.desktop.sound event-sounds false
@@ -129,7 +134,7 @@ if [ "$is_desktop" = 1 ]; then
     gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
     gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
     gsettings set org.gnome.shell disabled-extensions "['tiling-assistant@ubuntu.com']"
-    gsettings set org.gnome.shell favorite-apps "['firefox_firefox.desktop', 'org.wezfurlong.wezterm.desktop']"
+    gsettings set org.gnome.shell favorite-apps "$FAV_APPS"
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM"
     gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false

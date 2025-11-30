@@ -89,6 +89,10 @@ def get_asset_info(short_url, id) -> dict[str, str]:
             if len(targz) == 1:
                 return targz[0]
 
+            targz = [v for v in arch if v["name"].casefold().endswith(".tar.gz")]
+            if len(targz) == 1:
+                return targz[0]
+
             sys.exit(f"No unique file found for {short_url} available: {arch}")
 
     except urllib.error.HTTPError as e:
@@ -130,6 +134,8 @@ def get_local_version(name):
     if check_installed(name):
         path = get_install_path(name)
         command = [path, "--version"]
+        if name == "pet":
+            command = [path, "version"]
         # command is limited to ~/.local/bin
         cmd_output = subprocess.run(
             command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
@@ -177,7 +183,12 @@ def extract_program(file_name, package_name):
     base_cmd = f"tar xf {file_name} -C {install_path}".split()
     post_cmd = []
 
-    if package_name == "lazygit" or package_name == "fzf" or package_name == "starship":
+    if (
+        package_name == "lazygit"
+        or package_name == "fzf"
+        or package_name == "starship"
+        or package_name == "pet"
+    ):
         base_cmd.append(f"{package_name}")
     elif package_name == "yazi":
         base_file_name = file_name.replace(".zip", "")

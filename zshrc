@@ -182,6 +182,11 @@ if command -v just &>/dev/null; then
     alias j="just"
 fi
 
+# enable pet
+if command -v pet &>/dev/null; then
+    eval "$(pet completion zsh)"
+fi
+
 # enable starship
 if command -v starship &>/dev/null; then
     eval "$(starship init zsh)"

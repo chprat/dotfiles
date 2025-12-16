@@ -8,14 +8,11 @@ indent_size = 4
 indent_style = space
 charset = utf-8
 
-[Makefile]
-indent_style = tab
-
 [nvim/lazyvim.json]
 indent_size = 2
 
-[{**/*.{yml,yaml},*.{yml,yaml}}]
+[**/*.md]
 indent_size = 2
 
-[**/*.md]
+[**/*.{yml,yaml}]
 indent_size = 2

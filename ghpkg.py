@@ -89,6 +89,10 @@ def get_asset_info(short_url, id) -> dict[str, str]:
             if len(targz) == 1:
                 return targz[0]
 
+            zip = [v for v in abi if v["name"].casefold().endswith(".zip")]
+            if len(zip) == 1:
+                return zip[0]
+
             targz = [v for v in arch if v["name"].casefold().endswith(".tar.gz")]
             if len(targz) == 1:
                 return targz[0]

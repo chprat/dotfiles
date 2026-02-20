@@ -199,12 +199,6 @@ fi
 
 # Functions
 
-# backup files with rclone
-function backup() {
-    cp "$HOME/.ssh/config" "$HOME/data/ssh-config"
-    rclone sync "$HOME/data/" "nc:staging/$HOST/"
-}
-
 # cd .. multiple times
 function cdn() {
     for _i in $(seq "$1"); do

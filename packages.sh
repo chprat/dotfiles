@@ -29,7 +29,6 @@ export packages_ubuntu=(
     make
     npm
     python3-venv
-    rclone
     ripgrep
     rsync
     stow

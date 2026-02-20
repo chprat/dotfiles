@@ -8,6 +8,9 @@ config.font_size = on_mac and 14 or 12
 config.color_scheme = "Rosé Pine Moon (Gogh)"
 config.hide_tab_bar_if_only_one_tab = true
 
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+config.integrated_title_button_style = "Gnome"
+
 -- configure word boundaries for mouse selection
 config.selection_word_boundary = " \t\n{}[]()\"'`,:;│"
 

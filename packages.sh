@@ -49,7 +49,7 @@ export packages_desktop_ubuntu=(
     keepassxc
     meld
     nextcloud-desktop
-    wezterm
+    wezterm-nightly
     wl-clipboard
 )
 

@@ -35,7 +35,7 @@ fi
 if [ "$is_desktop" = 1 ]; then
     [ ! -d "$wallpaper_dir" ] && mkdir -p "$wallpaper_dir"
     if [ ! -f "$wallpaper_dir/leafy-moon.png" ]; then
-        curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/leafy-moon.png -o "$wallpaper_dir/leafy-moon.png"
+        curl -fsSL https://github.com/rose-pine/wallpapers/raw/refs/heads/main/illustration/leafy-moon.png -o "$wallpaper_dir/leafy-moon.png"
     fi
 fi
 

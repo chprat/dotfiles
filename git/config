@@ -9,6 +9,7 @@
     hr = reset --hard @{u}
     fp = push --force-with-lease
     pb = push -u origin HEAD
+    rd = !sh -c 'git range-diff @{u}~$1..@{u} HEAD~$1..HEAD' --
 [credential]
     helper = store
 [core]

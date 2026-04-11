@@ -76,3 +76,8 @@ if [ ! -d "$HOME/.tmux/plugins/tmux" ]; then
     "$HOME/.config/tmux/plugins/tpm/scripts/install_plugins.sh" >/dev/null
     tmux kill-server
 fi
+
+# install rust
+if [ ! -d "$HOME/.cargo" ]; then
+    curl -sSf https://sh.rustup.rs | sh -s -- -y
+fi

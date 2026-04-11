@@ -32,7 +32,6 @@ export packages_ubuntu=(
     ripgrep
     rsync
     stow
-    tealdeer
     tio
     tmux
     zoxide

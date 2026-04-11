@@ -86,3 +86,8 @@ fi
 if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
     "$HOME/.cargo/bin/cargo" install cargo-update
 fi
+
+# install tldr
+if [ ! -f "$HOME/.cargo/bin/tldr" ]; then
+    "$HOME/.cargo/bin/cargo" install tealdeer
+fi

@@ -81,3 +81,8 @@ fi
 if [ ! -d "$HOME/.cargo" ]; then
     curl -sSf https://sh.rustup.rs | sh -s -- -y
 fi
+
+# install cargo-update
+if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
+    "$HOME/.cargo/bin/cargo" install cargo-update
+fi

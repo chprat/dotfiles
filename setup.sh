@@ -82,6 +82,11 @@ if [ ! -d "$HOME/.cargo" ]; then
     curl -fsSl https://sh.rustup.rs | sh -s -- --no-modify-path -y
 fi
 
+# install rust-analyzer
+if [ ! -f "$HOME/.cargo/bin/rust-analyzer" ]; then
+    "$HOME/.cargo/bin/rustup" component add rust-analyzer
+fi
+
 # install cargo-update
 if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
     "$HOME/.cargo/bin/cargo" install cargo-update

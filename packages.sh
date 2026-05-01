@@ -72,7 +72,6 @@ export packages_macos=(
     luarocks
     neovim
     ripgrep
-    starship
     stow
     tealdeer
     tmux

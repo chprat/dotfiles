@@ -17,6 +17,9 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
@@ -185,11 +188,6 @@ fi
 # enable pet
 if command -v pet &>/dev/null; then
     eval "$(pet completion zsh)"
-fi
-
-# enable starship
-if command -v starship &>/dev/null; then
-    eval "$(starship init zsh)"
 fi
 
 # enable zoxide

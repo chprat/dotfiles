@@ -107,3 +107,8 @@ fi
 if [ ! -f "$HOME/.cargo/bin/uv" ]; then
     "$HOME/.cargo/bin/cargo" binstall uv
 fi
+
+# install yazi
+if [ ! -f "$HOME/.cargo/bin/yazi" ]; then
+    "$HOME/.cargo/bin/cargo" binstall yazi-fm
+fi

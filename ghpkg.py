@@ -187,12 +187,7 @@ def extract_program(file_name, package_name):
     base_cmd = f"tar xf {file_name} -C {install_path}".split()
     post_cmd = []
 
-    if package_name == "lazygit" or package_name == "pet":
-        base_cmd.append(f"{package_name}")
-    else:
-        base_cmd.append("--strip-components=1")
-        base_file_name = file_name.replace(".tar.gz", "")
-        base_cmd.append(f"{base_file_name}/{package_name}")
+    base_cmd.append(f"{package_name}")
 
     # External input for the command comes from an API
     cmd_output = subprocess.run(base_cmd)  # nosec

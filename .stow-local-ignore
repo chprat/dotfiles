@@ -26,6 +26,7 @@ _darcs
 ^/COPYING
 
 backup
+binstall.toml
 \.bandit.yml
 \.devskim.json
 \.editorconfig

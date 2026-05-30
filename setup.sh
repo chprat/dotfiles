@@ -87,12 +87,18 @@ if [ ! -f "$HOME/.cargo/bin/rust-analyzer" ]; then
     "$HOME/.cargo/bin/rustup" component add rust-analyzer
 fi
 
+# install cargo-binstall
+if [ ! -f "$HOME/.cargo/bin/cargo-binstall" ]; then
+    "$HOME/.cargo/bin/cargo" install cargo-binstall
+    link_file binstall.toml "$HOME/.cargo"
+fi
+
 # install cargo-update
 if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
-    "$HOME/.cargo/bin/cargo" install cargo-update
+    "$HOME/.cargo/bin/cargo" binstall cargo-update
 fi
 
 # install tldr
 if [ ! -f "$HOME/.cargo/bin/tldr" ]; then
-    "$HOME/.cargo/bin/cargo" install tealdeer
+    "$HOME/.cargo/bin/cargo" binstall tealdeer
 fi

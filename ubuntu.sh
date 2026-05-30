@@ -159,12 +159,12 @@ if [ "$is_desktop" = 1 ]; then
         fi
     done
 
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor diskspacestatus false
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor diskstatsstatus false
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor netethstatus false
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor netwlanstatus false
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor ramunit "perc"
-    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set com.github.Ory0n.Resource_Monitor thermalcputemperaturestatus true
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor diskspacestatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor diskstatsstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor netethstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor netwlanstatus false
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor ramunit "perc"
+    gsettings --schemadir ~/.local/share/gnome-shell/extensions/Resource_Monitor@Ory0n/schemas set org.gnome.shell.extensions.resource-monitor thermalcputemperaturestatus true
 
     rm -r .venv
 fi

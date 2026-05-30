@@ -185,6 +185,11 @@ if command -v just &>/dev/null; then
     alias j="just"
 fi
 
+# enable mise
+if command -v mise &>/dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
 # enable pet
 if command -v pet &>/dev/null; then
     eval "$(pet completion zsh)"

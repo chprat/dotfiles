@@ -117,3 +117,12 @@ fi
 if [ ! -f "$HOME/.cargo/bin/kanata" ]; then
     "$HOME/.cargo/bin/cargo" binstall kanata
 fi
+
+# install mise
+if [ ! -f "$HOME/.cargo/bin/mise" ]; then
+    "$HOME/.cargo/bin/cargo" binstall mise
+    "$HOME/.cargo/bin/mise" trust mise/config.toml
+fi
+
+# install globally managed mise tools
+"$HOME/.cargo/bin/mise" install

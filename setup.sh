@@ -112,3 +112,8 @@ fi
 if [ ! -f "$HOME/.cargo/bin/yazi" ]; then
     "$HOME/.cargo/bin/cargo" binstall yazi-fm
 fi
+
+# install kanata
+if [ ! -f "$HOME/.cargo/bin/kanata" ]; then
+    "$HOME/.cargo/bin/cargo" binstall kanata
+fi

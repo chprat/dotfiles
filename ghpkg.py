@@ -189,13 +189,6 @@ def extract_program(file_name, package_name):
 
     if package_name == "lazygit" or package_name == "fzf" or package_name == "pet":
         base_cmd.append(f"{package_name}")
-    elif package_name == "kanata":
-        base_file_name = file_name.replace(".zip", "")
-        ar_path = f"{package_name}_linux_x64"
-        command = f"unzip -q -o -j {file_name} {ar_path} -d {install_path}"
-        base_cmd = command.split()
-        rename = f"mv {install_path}{ar_path} {install_path}{package_name}"
-        post_cmd = rename.split()
     else:
         base_cmd.append("--strip-components=1")
         base_file_name = file_name.replace(".tar.gz", "")

@@ -187,7 +187,7 @@ def extract_program(file_name, package_name):
     base_cmd = f"tar xf {file_name} -C {install_path}".split()
     post_cmd = []
 
-    if package_name == "lazygit" or package_name == "fzf" or package_name == "pet":
+    if package_name == "lazygit" or package_name == "pet":
         base_cmd.append(f"{package_name}")
     else:
         base_cmd.append("--strip-components=1")

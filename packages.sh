@@ -40,7 +40,6 @@ export packages_ubuntu=(
 
 export snaps_ubuntu_classic=(
     just
-    nvim
 )
 
 export packages_desktop_ubuntu=(

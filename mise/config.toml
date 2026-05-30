@@ -1,3 +1,4 @@
 [tools]
 fzf = "latest"
 lazygit = "latest"
+neovim = "latest"

@@ -120,6 +120,11 @@ if [ "$is_desktop" = 1 ]; then
     fi
 fi
 
+# disable global compinit from /etc/zsh/zshrc
+if [ ! -f "$HOME/.zshenv" ]; then
+    echo "skip_global_compinit=1" >>"$HOME/.zshenv"
+fi
+
 # Gnome customization
 if [ "$is_desktop" = 1 ]; then
     CHROME_DESKTOP=""

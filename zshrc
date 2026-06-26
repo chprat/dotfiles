@@ -1,6 +1,4 @@
-if [[ $(uname -s) = "Darwin" ]]; then
-    autoload -U compinit && compinit
-fi
+autoload -U compinit && compinit
 
 # setup zinit plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

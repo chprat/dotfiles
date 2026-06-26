@@ -76,7 +76,7 @@ bindkey '^n' history-search-forward  # complete only with prefix
 # Variables
 EDITOR=$(which nvim)
 export EDITOR
-PATH="${HOME}/.local/bin:${PATH}"
+PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
 export PATH
 
 if command -v rg &>/dev/null; then

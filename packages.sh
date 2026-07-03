@@ -55,29 +55,3 @@ export gnome_extensions=(
     caffeine@patapon.info
     Resource_Monitor@Ory0n
 )
-
-export packages_macos=(
-    autoconf
-    bat
-    direnv
-    eza
-    fd
-    fontconfig
-    fzf
-    git-delta
-    gnu-sed
-    just
-    lazygit
-    luarocks
-    neovim
-    ripgrep
-    stow
-    tealdeer
-    tmux
-    yazi
-    zoxide
-)
-
-export packages_desktop_macos=(
-    wezterm
-)

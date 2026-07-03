@@ -7,7 +7,7 @@ Environment=PATH=@@HOME@@/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bi
 Environment=DISPLAY=:0
 Environment=HOME=@@HOME@@
 Type=simple
-ExecStart=@@HOME@@/.cargo/bin/kanata -c @@HOME@@/.dotfiles/kanata-linux.kbd
+ExecStart=@@HOME@@/.cargo/bin/kanata -c @@HOME@@/.dotfiles/kanata.kbd
 Restart=never
 
 [Install]

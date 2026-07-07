@@ -6,5 +6,3 @@ DISABLE:
 
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
-
-BASH_EXEC_FILTER_REGEX_EXCLUDE: (macos\.sh|packages\.sh|ubuntu\.sh)

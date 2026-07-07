@@ -47,9 +47,6 @@ Dockerfile
 
 gh.pkg
 ghpkg.py
-macos.sh
-packages.sh
 setup.sh
-ubuntu.sh
 
 kanata.*

@@ -10,7 +10,7 @@ on:
       - main
   workflow_dispatch:
 
-permissions: read-all
+permissions: {}
 
 jobs:
   test-ghpkg-x86:
@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Run script
         run: |
@@ -33,6 +35,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Run script
         run: |

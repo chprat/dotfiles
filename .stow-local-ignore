@@ -39,6 +39,7 @@ selene.toml
 \.stowrc
 \.trivyignore
 vim.toml
+zizmor.yml
 
 zshrc
 

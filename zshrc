@@ -245,7 +245,28 @@ function sysupgr() {
     sudo apt dist-upgrade -y
     sudo apt autoremove -y
     dpkg -l | grep ^rc | awk '{ print $2 }' | xargs sudo apt purge -y
-    if which snap >/dev/null; then
+    if command -v snap >/dev/null; then
         sudo snap refresh
+    fi
+    if command -v cargo >/dev/null; then
+        cargo install-update --all
+    fi
+    if command -v mise >/dev/null; then
+        mise upgrade
+    fi
+    if command -v uv >/dev/null; then
+        uv tool upgrade --all
+    fi
+    if command -v rustup >/dev/null; then
+        rustup update
+    fi
+    if command -v zinit &>/dev/null; then
+        zinit update -a -q
+    fi
+    if [ -f "$HOME/.config/tmux/plugins/tpm/scripts/update_plugin.sh" ]; then
+        tmux start-server
+        tmux new-session -d
+        "$HOME/.config/tmux/plugins/tpm/scripts/update_plugin.sh" shifted all
+        tmux kill-server
     fi
 }

@@ -11,6 +11,7 @@ packages_ubuntu=(
     fd-find
     git
     git-delta
+    just
     luarocks
     make
     npm
@@ -22,10 +23,6 @@ packages_ubuntu=(
     tmux
     zoxide
     zsh
-)
-
-snaps_ubuntu_classic=(
-    just
 )
 
 packages_desktop_ubuntu=(
@@ -72,13 +69,6 @@ fi
 # install packages
 sudo apt update
 sudo apt install -y "${packages_ubuntu[@]}"
-if command -v snap &>/dev/null; then
-    for snap in "${snaps_ubuntu_classic[@]}"; do
-        if ! snap list | grep -q "^$snap"; then
-            sudo snap install --classic "${snap}"
-        fi
-    done
-fi
 if [ "$is_desktop" = 1 ]; then
     sudo apt install -y "${packages_desktop_ubuntu[@]}"
 fi

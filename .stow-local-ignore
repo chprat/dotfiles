@@ -46,8 +46,6 @@ zshrc
 container-test.sh
 Dockerfile
 
-gh.pkg
-ghpkg.py
 setup.sh
 
 kanata.*

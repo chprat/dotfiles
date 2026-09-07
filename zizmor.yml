@@ -1,6 +1,4 @@
 rules:
-  unpinned-uses:
-    ignore:
-      - mega-linter.yml
-      - test-ghpkg.yml
-      - update-versions.yml
+    unpinned-uses:
+        ignore:
+            - mega-linter.yml

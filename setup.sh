@@ -101,9 +101,6 @@ if [ -n "$USRSHELL" ] && [ "$USRSHELL" != "zsh" ]; then
     echo -e "\033[0;31mZSH will be enabled after rebooting.\033[0m"
 fi
 
-# install github packages
-./ghpkg.py download
-
 # install fzf-tmux wrapper script
 if [ ! -f "$HOME/.local/bin/fzf-tmux" ]; then
     curl -LO https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-tmux

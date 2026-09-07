@@ -267,11 +267,6 @@ if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
     "$HOME/.cargo/bin/cargo" binstall cargo-update
 fi
 
-# install uv
-if [ ! -f "$HOME/.cargo/bin/uv" ]; then
-    "$HOME/.cargo/bin/cargo" binstall uv
-fi
-
 # install kanata
 if [ "$is_desktop" = 1 ] && [ ! -f "$HOME/.cargo/bin/kanata" ]; then
     "$HOME/.cargo/bin/cargo" binstall kanata

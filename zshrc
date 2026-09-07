@@ -249,9 +249,6 @@ function sysupgr() {
     if command -v mise >/dev/null; then
         mise upgrade
     fi
-    if command -v uv >/dev/null; then
-        uv tool upgrade --all
-    fi
     if command -v rustup >/dev/null; then
         rustup update
     fi

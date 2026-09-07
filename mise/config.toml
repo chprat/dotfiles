@@ -1,5 +1,6 @@
 [tools]
 fzf = "latest"
+"github:zsa/zapp" = "latest"
 lazygit = "latest"
 neovim = "latest"
 tealdeer = "latest"

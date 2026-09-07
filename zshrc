@@ -109,11 +109,6 @@ if command -v batcat &>/dev/null; then
     alias cat="batcat"
 fi
 
-# enable direnv
-if command -v direnv &>/dev/null; then
-    eval "$(direnv hook zsh)"
-fi
-
 if command -v fzf &>/dev/null; then
     # colors are rose-pine-moon
     export FZF_DEFAULT_OPTS='--tmux --height 40% --reverse --border

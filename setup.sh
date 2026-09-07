@@ -7,7 +7,6 @@ packages_ubuntu=(
     bat
     cmake
     curl
-    direnv
     eza
     fd-find
     git

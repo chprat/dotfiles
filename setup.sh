@@ -277,11 +277,6 @@ if [ ! -f "$HOME/.cargo/bin/cargo-install-update" ]; then
     "$HOME/.cargo/bin/cargo" binstall cargo-update
 fi
 
-# install tldr
-if [ ! -f "$HOME/.cargo/bin/tldr" ]; then
-    "$HOME/.cargo/bin/cargo" binstall tealdeer
-fi
-
 # install uv
 if [ ! -f "$HOME/.cargo/bin/uv" ]; then
     "$HOME/.cargo/bin/cargo" binstall uv

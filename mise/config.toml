@@ -2,4 +2,5 @@
 fzf = "latest"
 lazygit = "latest"
 neovim = "latest"
+tealdeer = "latest"
 yazi = "latest"

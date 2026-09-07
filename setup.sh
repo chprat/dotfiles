@@ -283,7 +283,7 @@ if [ ! -f "$HOME/.cargo/bin/uv" ]; then
 fi
 
 # install kanata
-if [ ! -f "$HOME/.cargo/bin/kanata" ]; then
+if [ "$is_desktop" = 1 ] && [ ! -f "$HOME/.cargo/bin/kanata" ]; then
     "$HOME/.cargo/bin/cargo" binstall kanata
 fi
 

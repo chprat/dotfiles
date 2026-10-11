@@ -93,6 +93,7 @@ fi
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias tsw="$HOME/.config/tmux/plugins/tmux-session-wizard/bin/t"
 
 if ! command -v fd &>/dev/null; then
     alias fd='fdfind'

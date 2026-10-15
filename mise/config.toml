@@ -6,3 +6,6 @@ neovim = "latest"
 pi = "latest"
 tealdeer = "latest"
 yazi = "latest"
+
+[shell_alias]
+mr = 'mise run'

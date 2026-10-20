@@ -3,7 +3,6 @@ fzf = "latest"
 "github:zsa/zapp" = "latest"
 lazygit = "latest"
 neovim = "latest"
-pi = "latest"
 tealdeer = "latest"
 yazi = "latest"
 
